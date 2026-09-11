@@ -24,20 +24,20 @@ export function Services() {
             <Reveal key={service.title} delay={i * 100}>
               <article className="card card-top-glow card-hover group flex h-full flex-col p-6 sm:p-7">
                 <div className="flex items-center justify-between">
-                  <span className="grid h-12 w-12 place-items-center rounded-2xl border border-brand-400/25 bg-gradient-to-br from-brand-500/20 to-transparent text-brand-300 transition group-hover:scale-105">
+                  <span className="grid h-12 w-12 place-items-center rounded-2xl border border-brand-400/25 bg-gradient-to-br from-brand-500/20 to-transparent text-brand-600 transition group-hover:scale-105">
                     <Icon name={service.icon as IconName} size={22} />
                   </span>
-                  <span className="font-display text-xs font-bold text-white/20 tabular">
+                  <span className="font-display text-xs font-bold text-brand-900/25 tabular">
                     0{i + 1}
                   </span>
                 </div>
 
                 <h3 className="mt-6 text-lg font-bold">{service.title}</h3>
-                <p className="mt-3 flex-1 text-[13.5px] leading-7 text-white/55">{service.desc}</p>
+                <p className="mt-3 flex-1 text-[13.5px] leading-7 text-ink-700">{service.desc}</p>
 
                 <button
                   onClick={() => scrollToId(service.target)}
-                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/[0.12] bg-white/[0.03] px-4 py-2.5 text-[13px] font-semibold text-white/85 transition hover:border-brand-400/45 hover:bg-brand-500/10 hover:text-white"
+                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-brand-900/12 bg-brand-50/50 px-4 py-2.5 text-[13px] font-semibold text-ink-900 transition hover:border-brand-400/45 hover:bg-brand-500/10 hover:text-ink-950"
                 >
                   {service.cta}
                   <Icon name="arrowLeft" size={16} />

@@ -14,7 +14,7 @@ export function Hero() {
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-grid-fade bg-grid opacity-[0.35] [mask-image:radial-gradient(70%_60%_at_50%_0%,black,transparent)]" />
         <div className="absolute -top-24 right-[-10%] h-[420px] w-[420px] animate-float rounded-full bg-radial-brand blur-3xl" />
-        <div className="absolute bottom-[-10%] left-[-5%] h-[360px] w-[360px] rounded-full bg-brand-800/40 blur-3xl" />
+        <div className="absolute bottom-[-10%] left-[-5%] h-[360px] w-[360px] rounded-full bg-brand-200/60 blur-3xl" />
       </div>
 
       <div className="container-x grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
@@ -39,7 +39,7 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={180}>
-            <p className="mx-auto mt-6 max-w-2xl text-[15px] leading-8 text-white/65 sm:text-lg lg:mx-0">
+            <p className="mx-auto mt-6 max-w-2xl text-[15px] leading-8 text-ink-800 sm:text-lg lg:mx-0">
               اكتشف مجموعة من الحلول الاستثمارية التي تشمل حسابات PAMM، الفرص الاستثمارية، الاكتتابات
               والباقات المالية بمستويات مختلفة من رأس المال والعملات.
             </p>
@@ -49,22 +49,22 @@ export function Hero() {
             <div className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center lg:justify-start">
               <button
                 onClick={() => scrollToId('packages')}
-                className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-l from-brand-400 to-brand-600 px-7 py-4 text-base font-bold text-ink-950 shadow-[0_14px_40px_-14px_rgba(27,167,110,1)] transition hover:from-brand-300 hover:to-brand-500"
+                className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-l from-brand-400 to-brand-600 px-7 py-4 text-base font-bold text-white shadow-[0_14px_40px_-14px_rgba(18,164,105,0.55)] transition hover:from-brand-500 hover:to-brand-700"
               >
                 استعرض الباقات
                 <Icon name="arrowLeft" size={18} className="transition-transform group-hover:-translate-x-1" />
               </button>
 
               <button
-                onClick={() => scrollToId('pamm')}
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/[0.04] px-7 py-4 text-base font-semibold text-white backdrop-blur transition hover:border-brand-400/50 hover:bg-brand-500/10"
+                onClick={() => scrollToId('packages')}
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-brand-500/30 bg-white px-7 py-4 text-base font-semibold text-brand-700 shadow-glow-soft transition hover:border-brand-500/60 hover:bg-brand-50 hover:text-brand-800"
               >
-                اكتشف PAMM
+                اكتشف عروضنا
               </button>
 
               <ContactMenu
                 align="center"
-                triggerClassName="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/[0.04] px-7 py-4 text-base font-semibold text-white backdrop-blur transition hover:border-brand-400/50 hover:bg-brand-500/10 sm:w-auto"
+                triggerClassName="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-brand-900/15 bg-brand-50/70 px-7 py-4 text-base font-semibold text-ink-950 backdrop-blur transition hover:border-brand-400/50 hover:bg-brand-500/10 sm:w-auto"
                 trigger={
                   <>
                     تواصل معنا
@@ -84,12 +84,12 @@ export function Hero() {
                   className="card card-top-glow card-hover p-4 text-right sm:p-5"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-brand-400/25 bg-brand-500/[0.12] text-brand-300">
+                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-brand-400/25 bg-brand-500/[0.12] text-brand-600">
                       <Icon name={statIcons[i]} size={19} />
                     </span>
                     <div>
-                      <p className="font-display text-[15px] font-bold text-white">{stat.title}</p>
-                      <p className="mt-0.5 text-xs leading-5 text-white/50">{stat.desc}</p>
+                      <p className="font-display text-[15px] font-bold text-ink-950">{stat.title}</p>
+                      <p className="mt-0.5 text-xs leading-5 text-ink-700">{stat.desc}</p>
                     </div>
                   </div>
                 </div>
@@ -98,8 +98,8 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={420}>
-            <p className="mt-8 flex items-start justify-center gap-2 text-[12.5px] leading-6 text-white/40 lg:justify-start">
-              <Icon name="shield" size={16} className="mt-0.5 shrink-0 text-brand-400/70" />
+            <p className="mt-8 flex items-start justify-center gap-2 text-[12.5px] leading-6 text-ink-600 lg:justify-start">
+              <Icon name="shield" size={16} className="mt-0.5 shrink-0 text-brand-500" />
               {RISK_DISCLAIMER}
             </p>
           </Reveal>
@@ -126,12 +126,12 @@ function HeroVisual() {
         <div className="card card-top-glow p-6 sm:p-7">
           <div className="flex items-start justify-between">
             <div>
-              <p className="text-xs font-medium text-white/45">محفظة استثمارية — {BRAND.name}</p>
-              <p className="mt-2 font-display text-3xl font-extrabold text-white sm:text-4xl tabular">
+              <p className="text-xs font-medium text-ink-600">محفظة استثمارية — {BRAND.name}</p>
+              <p className="mt-2 font-display text-3xl font-extrabold text-ink-950 sm:text-4xl tabular">
                 <span className="text-gradient-brand">متعددة العملات</span>
               </p>
             </div>
-            <span className="rounded-xl border border-brand-400/25 bg-brand-500/[0.12] px-3 py-1.5 text-[11px] font-bold text-brand-200">
+            <span className="rounded-xl border border-brand-400/25 bg-brand-500/[0.12] px-3 py-1.5 text-[11px] font-bold text-brand-700">
               PAMM · اكتتابات · باقات
             </span>
           </div>
@@ -144,10 +144,10 @@ function HeroVisual() {
             ].map((item) => (
               <div
                 key={item.label}
-                className="rounded-2xl border border-white/10 bg-ink-900/60 px-3 py-4 text-center"
+                className="rounded-2xl border border-brand-900/10 bg-white px-3 py-4 text-center"
               >
-                <p className="font-display text-2xl font-extrabold text-white tabular">{item.value}</p>
-                <p className="mt-1 text-[11px] text-white/45">{item.label}</p>
+                <p className="font-display text-2xl font-extrabold text-ink-950 tabular">{item.value}</p>
+                <p className="mt-1 text-[11px] text-ink-600">{item.label}</p>
               </div>
             ))}
           </div>
@@ -157,17 +157,17 @@ function HeroVisual() {
               { flag: '🇸🇦', name: 'السعودية', value: 'ريال سعودي', tone: 'from-brand-400/80 to-brand-600/40' },
               { flag: '🇦🇪', name: 'الإمارات', value: 'درهم', tone: 'from-brand-300/70 to-brand-700/40' },
               { flag: '🇰🇼', name: 'الكويت', value: 'دينار', tone: 'from-emerald-300/70 to-emerald-700/40' },
-              { flag: '💵', name: 'الدولار', value: 'USD', tone: 'from-white/40 to-brand-700/50' },
+              { flag: '💵', name: 'الدولار', value: 'USD', tone: 'from-brand-200 to-brand-600/60' },
             ].map((row) => (
               <div
                 key={row.name}
-                className="flex items-center justify-between rounded-2xl border border-white/[0.07] bg-white/[0.03] px-4 py-3 transition hover:border-brand-400/30 hover:bg-white/[0.06]"
+                className="flex items-center justify-between rounded-2xl border border-brand-900/8 bg-brand-50/50 px-4 py-3 transition hover:border-brand-400/30 hover:bg-brand-50"
               >
                 <div className="flex items-center gap-3">
                   <span className="text-xl">{row.flag}</span>
                   <div className="text-right">
-                    <p className="text-[13px] font-semibold text-white">{row.name}</p>
-                    <p className="text-[11px] text-white/45">{row.value}</p>
+                    <p className="text-[13px] font-semibold text-ink-950">{row.name}</p>
+                    <p className="text-[11px] text-ink-600">{row.value}</p>
                   </div>
                 </div>
                 <span className={`h-8 w-16 rounded-full bg-gradient-to-l ${row.tone} opacity-70`} />
@@ -177,14 +177,14 @@ function HeroVisual() {
         </div>
 
         {/* بطاقة عائمة */}
-        <div className="absolute -bottom-8 left-2 hidden animate-float rounded-2xl border border-white/10 bg-ink-900/90 px-4 py-3 shadow-glow backdrop-blur-xl sm:block">
+        <div className="absolute -bottom-8 left-2 hidden animate-float rounded-2xl border border-brand-900/10 bg-white px-4 py-3 shadow-glow backdrop-blur-xl sm:block">
           <div className="flex items-center gap-3">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-500/15 text-brand-300">
+            <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-500/15 text-brand-600">
               <Icon name="trendUp" size={18} />
             </span>
             <div>
-              <p className="text-[11px] text-white/45">تواصل مباشر</p>
-              <p className="text-[13px] font-bold text-white">واتساب · تيليجرام</p>
+              <p className="text-[11px] text-ink-600">تواصل مباشر</p>
+              <p className="text-[13px] font-bold text-ink-950">واتساب · تيليجرام</p>
             </div>
           </div>
         </div>

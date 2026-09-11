@@ -56,8 +56,8 @@ export function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'border-b border-white/10 bg-ink-950/85 backdrop-blur-xl supports-[backdrop-filter]:bg-ink-950/70'
-          : 'border-b border-transparent'
+          ? 'border-b border-brand-900/10 bg-white/95 shadow-glow-soft backdrop-blur-xl'
+          : 'border-b border-transparent bg-white/70 backdrop-blur-md'
       }`}
     >
       <div className="container-x flex h-[72px] items-center justify-between gap-4">
@@ -73,8 +73,8 @@ export function Navbar() {
         >
           <Logo />
           <span className="flex flex-col leading-tight">
-            <span className="font-display text-lg font-extrabold text-white">{BRAND.name}</span>
-            <span className="hidden text-[11px] font-medium text-white/45 sm:block">
+            <span className="font-display text-lg font-extrabold text-ink-950">{BRAND.name}</span>
+            <span className="hidden text-[11px] font-medium text-ink-600 sm:block">
               {BRAND.tagline}
             </span>
           </span>
@@ -89,7 +89,7 @@ export function Navbar() {
                 key={link.id}
                 onClick={() => handleNav(link.id)}
                 className={`relative rounded-xl px-3.5 py-2 text-[14px] font-medium transition ${
-                  isActive ? 'text-white' : 'text-white/60 hover:text-white'
+                  isActive ? 'text-ink-950' : 'text-ink-800 hover:text-ink-950'
                 }`}
               >
                 {link.label}
@@ -110,7 +110,7 @@ export function Navbar() {
               onClick={() => setContactOpen((v) => !v)}
               aria-expanded={contactOpen}
               aria-haspopup="menu"
-              className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-l from-brand-400 to-brand-600 px-5 py-2.5 text-sm font-bold text-ink-950 shadow-[0_10px_30px_-12px_rgba(27,167,110,0.9)] transition hover:from-brand-300 hover:to-brand-500"
+              className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-l from-brand-400 to-brand-600 px-5 py-2.5 text-sm font-bold text-white shadow-[0_10px_30px_-12px_rgba(18,164,105,0.45)] transition hover:from-brand-500 hover:to-brand-700"
             >
               تواصل معنا
               <Icon
@@ -122,7 +122,7 @@ export function Navbar() {
 
             <div
               role="menu"
-              className={`absolute left-0 top-[calc(100%+12px)] w-56 origin-top-left overflow-hidden rounded-2xl border border-white/10 bg-ink-900/95 p-2 shadow-glow backdrop-blur-xl transition-all duration-200 ${
+              className={`absolute left-0 top-[calc(100%+12px)] w-56 origin-top-left overflow-hidden rounded-2xl border border-brand-900/10 bg-white p-2 shadow-glow backdrop-blur-xl transition-all duration-200 ${
                 contactOpen
                   ? 'visible translate-y-0 opacity-100'
                   : 'invisible -translate-y-2 opacity-0'
@@ -142,7 +142,7 @@ export function Navbar() {
                 size="sm"
                 className="mt-1 w-full justify-start"
               />
-              <p className="mt-2 border-t border-white/10 px-3 pt-2 text-[11px] leading-5 text-white/40">
+              <p className="mt-2 border-t border-brand-900/10 px-3 pt-2 text-[11px] leading-5 text-ink-600">
                 بدون تسجيل — محادثة مباشرة مع فريقنا
               </p>
             </div>
@@ -150,7 +150,7 @@ export function Navbar() {
 
           <button
             onClick={() => setMenuOpen(true)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-white lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-brand-900/10 bg-brand-50/70 text-ink-950 lg:hidden"
             aria-label="فتح القائمة"
           >
             <Icon name="menu" size={20} />
@@ -158,30 +158,30 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* قائمة الهاتف */}
+      {/* الشريط الجانبي (قائمة الهاتف) — خلفية خضراء صلبة غير شفافة */}
       <div
         className={`fixed inset-0 z-[60] lg:hidden ${menuOpen ? '' : 'pointer-events-none'}`}
         aria-hidden={!menuOpen}
       >
         <div
           onClick={() => setMenuOpen(false)}
-          className={`absolute inset-0 bg-ink-950/80 backdrop-blur-sm transition-opacity duration-300 ${
+          className={`absolute inset-0 bg-brand-950/45 backdrop-blur-[2px] transition-opacity duration-300 ${
             menuOpen ? 'opacity-100' : 'opacity-0'
           }`}
         />
-        <div
-          className={`absolute inset-y-0 right-0 w-[86%] max-w-sm border-l border-white/10 bg-ink-900 p-6 shadow-2xl transition-transform duration-300 ${
+        <aside
+          className={`side-panel absolute inset-y-0 right-0 flex w-[86%] max-w-sm flex-col overflow-y-auto p-6 shadow-2xl transition-transform duration-300 ${
             menuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Logo size={34} />
-              <span className="font-display text-base font-extrabold">{BRAND.name}</span>
+              <Logo size={34} onGreen />
+              <span className="font-display text-base font-extrabold text-white">{BRAND.name}</span>
             </div>
             <button
               onClick={() => setMenuOpen(false)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/25 bg-white/10 text-white transition hover:bg-white/20"
               aria-label="إغلاق القائمة"
             >
               <Icon name="close" size={18} />
@@ -189,19 +189,28 @@ export function Navbar() {
           </div>
 
           <nav className="mt-8 flex flex-col gap-1" aria-label="تنقل الهاتف">
-            {NAV_LINKS.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => handleNav(link.id)}
-                className="rounded-xl px-4 py-3 text-right text-[15px] font-medium text-white/75 transition hover:bg-white/5 hover:text-white"
-              >
-                {link.label}
-              </button>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isActive = active === link.id
+              return (
+                <button
+                  key={link.id}
+                  onClick={() => handleNav(link.id)}
+                  aria-current={isActive ? 'page' : undefined}
+                  className={`flex items-center justify-between rounded-xl px-4 py-3 text-right text-[15px] font-semibold transition ${
+                    isActive
+                      ? 'bg-white text-brand-700 shadow-[0_10px_24px_-16px_rgba(4,37,26,0.9)]'
+                      : 'text-white/85 hover:bg-white/15 hover:text-white'
+                  }`}
+                >
+                  {link.label}
+                  <Icon name="arrowLeft" size={15} className={isActive ? 'text-brand-500' : 'text-white/50'} />
+                </button>
+              )
+            })}
           </nav>
 
-          <div className="mt-6 space-y-2 border-t border-white/10 pt-6">
-            <p className="px-1 text-xs font-semibold text-white/40">تواصل معنا</p>
+          <div className="mt-6 space-y-2 border-t border-white/20 pt-6">
+            <p className="px-1 text-xs font-semibold text-white/70">تواصل معنا</p>
             <ContactButton
               channel="whatsapp"
               href={CONTACT.whatsapp}
@@ -215,7 +224,13 @@ export function Navbar() {
               className="w-full"
             />
           </div>
-        </div>
+
+          <div className="mt-auto pt-8">
+            <p className="rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-[11.5px] leading-6 text-white/80">
+              بدون تسجيل — محادثة مباشرة مع فريق {BRAND.name} عبر واتساب أو تيليجرام.
+            </p>
+          </div>
+        </aside>
       </div>
     </header>
   )

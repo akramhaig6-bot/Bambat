@@ -40,7 +40,7 @@ export function SectionHeading({
       {description ? (
         <Reveal delay={160}>
           <p
-            className={`mt-5 text-[15px] leading-8 text-white/60 sm:text-base ${
+            className={`mt-5 text-[15px] leading-8 text-ink-800 sm:text-base ${
               centered ? 'mx-auto' : ''
             } max-w-2xl`}
           >

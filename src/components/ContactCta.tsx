@@ -7,10 +7,10 @@ export function ContactCta() {
     <section id="contact" className="relative scroll-mt-28 py-20 lg:py-28">
       <div className="container-x">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[2rem] border border-brand-400/20 bg-gradient-to-bl from-ink-800/80 via-ink-900/85 to-ink-950/95 p-8 text-center shadow-glow sm:p-12 lg:p-16">
+          <div className="relative overflow-hidden rounded-[2rem] border border-brand-400/20 bg-gradient-to-bl from-white via-brand-50/70 to-white p-8 text-center shadow-glow sm:p-12 lg:p-16">
             <div aria-hidden className="pointer-events-none absolute inset-0">
               <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-brand-500/15 blur-3xl" />
-              <div className="absolute -bottom-24 -left-20 h-80 w-80 rounded-full bg-brand-700/20 blur-3xl" />
+              <div className="absolute -bottom-24 -left-20 h-80 w-80 rounded-full bg-brand-200/50 blur-3xl" />
               <div className="absolute inset-0 bg-grid-fade bg-grid opacity-20 [mask-image:radial-gradient(60%_60%_at_50%_50%,black,transparent)]" />
             </div>
 
@@ -23,7 +23,7 @@ export function ContactCta() {
               <h2 className="mx-auto mt-6 max-w-2xl text-balance text-3xl font-extrabold leading-[1.25] sm:text-4xl lg:text-[2.7rem]">
                 هل وجدت <span className="text-gradient-brand">الباقة المناسبة؟</span>
               </h2>
-              <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-8 text-white/60">
+              <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-8 text-ink-800">
                 تواصل مباشرة مع فريقنا للحصول على تفاصيل الباقة، شروط الاشتراك، وآلية المشاركة.
               </p>
 
@@ -42,8 +42,8 @@ export function ContactCta() {
                 />
               </div>
 
-              <p className="mt-8 flex items-center justify-center gap-2 text-[13px] text-white/45">
-                <Icon name="check" size={16} className="text-brand-400" />
+              <p className="mt-8 flex items-center justify-center gap-2 text-[13px] text-ink-600">
+                <Icon name="check" size={16} className="text-brand-500" />
                 لا تحتاج إلى إنشاء حساب. التواصل يتم مباشرة مع فريق الشركة.
               </p>
             </div>
@@ -73,25 +73,25 @@ function BigContact({
       rel="noreferrer noopener"
       className={`group flex items-center gap-4 rounded-2xl border p-5 text-right transition duration-300 hover:-translate-y-1 sm:p-6 ${
         isWa
-          ? 'border-emerald-300/25 bg-emerald-400/10 hover:border-emerald-300/60 hover:bg-emerald-400/[0.18]'
-          : 'border-sky-300/25 bg-sky-400/10 hover:border-sky-300/60 hover:bg-sky-400/[0.18]'
+          ? 'border-emerald-500/25 bg-emerald-50 hover:border-emerald-500/40 hover:bg-emerald-100'
+          : 'border-sky-500/25 bg-sky-50 hover:border-sky-500/40 hover:bg-sky-100'
       }`}
     >
       <span
         className={`grid h-14 w-14 shrink-0 place-items-center rounded-2xl ${
-          isWa ? 'bg-emerald-400/20 text-emerald-200' : 'bg-sky-400/20 text-sky-200'
+          isWa ? 'bg-emerald-500/15 text-emerald-700' : 'bg-sky-500/15 text-sky-700'
         }`}
       >
         <ChannelGlyph channel={channel} />
       </span>
       <span className="flex-1">
-        <span className="block text-[15px] font-bold text-white sm:text-base">{title}</span>
-        <span className="mt-1 block text-[12.5px] text-white/55">{subtitle}</span>
+        <span className="block text-[15px] font-bold text-ink-950 sm:text-base">{title}</span>
+        <span className="mt-1 block text-[12.5px] text-ink-700">{subtitle}</span>
       </span>
       <Icon
         name="arrowLeft"
         size={20}
-        className="shrink-0 text-white/30 transition group-hover:-translate-x-1 group-hover:text-white"
+        className="shrink-0 text-ink-600/70 transition group-hover:-translate-x-1 group-hover:text-ink-950"
       />
     </a>
   )
