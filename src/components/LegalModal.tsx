@@ -70,11 +70,11 @@ export function LegalModal({
       role="dialog"
       aria-modal="true"
     >
-      <div className="absolute inset-0 bg-ink-950/80 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute inset-0 bg-brand-950/40 backdrop-blur-sm" onClick={onClose} />
       <div className="card relative z-10 max-h-[85vh] w-full max-w-2xl animate-fade-up overflow-y-auto p-6 sm:p-9">
         <button
           onClick={onClose}
-          className="absolute left-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/70 transition hover:text-white"
+          className="absolute left-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-brand-900/10 bg-brand-50/70 text-ink-800 transition hover:text-ink-950"
           aria-label="إغلاق"
         >
           <Icon name="close" size={16} />
@@ -83,19 +83,19 @@ export function LegalModal({
         <h3 className="text-xl font-extrabold">{content.title}</h3>
         <div className="mt-5 space-y-4">
           {content.body.map((p, i) => (
-            <p key={i} className="text-[14px] leading-8 text-white/65">
+            <p key={i} className="text-[14px] leading-8 text-ink-800">
               {p}
             </p>
           ))}
         </div>
 
-        <p className="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-[12px] leading-6 text-white/45">
+        <p className="mt-6 rounded-2xl border border-brand-900/10 bg-brand-50/50 px-4 py-3 text-[12px] leading-6 text-ink-600">
           نص template عام — يُرجى مراجعته مع المستشار القانوني للشركة قبل النشر.
         </p>
 
         <button
           onClick={onClose}
-          className="mt-6 w-full rounded-xl bg-gradient-to-l from-brand-400 to-brand-600 px-5 py-3 text-sm font-bold text-ink-950 transition hover:from-brand-300 hover:to-brand-500"
+          className="mt-6 w-full rounded-xl bg-gradient-to-l from-brand-400 to-brand-600 px-5 py-3 text-sm font-bold text-white transition hover:from-brand-500 hover:to-brand-700"
         >
           إغلاق
         </button>

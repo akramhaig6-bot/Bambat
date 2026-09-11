@@ -9,14 +9,14 @@ const base =
 
 const variants: Record<Variant, string> = {
   primary:
-    'bg-gradient-to-l from-brand-400 to-brand-600 text-ink-950 shadow-[0_10px_30px_-12px_rgba(27,167,110,0.9)] hover:from-brand-300 hover:to-brand-500 hover:shadow-[0_14px_40px_-12px_rgba(27,167,110,1)]',
+    'bg-gradient-to-l from-brand-400 to-brand-600 text-white shadow-[0_10px_30px_-12px_rgba(18,164,105,0.45)] hover:from-brand-500 hover:to-brand-700 hover:shadow-[0_14px_40px_-12px_rgba(18,164,105,0.55)] hover:text-white',
   outline:
-    'border border-white/15 bg-white/[0.04] text-white backdrop-blur hover:border-brand-400/50 hover:bg-brand-500/10 hover:text-white',
-  ghost: 'text-white/75 hover:bg-white/5 hover:text-white',
+    'border border-brand-900/15 bg-brand-50/70 text-ink-950 backdrop-blur hover:border-brand-400/50 hover:bg-brand-500/10 hover:text-ink-950',
+  ghost: 'text-ink-800 hover:bg-brand-50 hover:text-ink-950',
   whatsapp:
-    'border border-emerald-300/25 bg-emerald-400/[0.12] text-emerald-100 backdrop-blur hover:border-emerald-300/60 hover:bg-emerald-400/[0.22] hover:text-white',
+    'border border-emerald-500/25 bg-emerald-50 text-emerald-700 hover:border-emerald-500/50 hover:bg-emerald-100 hover:text-emerald-800',
   telegram:
-    'border border-sky-300/25 bg-sky-400/[0.12] text-sky-100 backdrop-blur hover:border-sky-300/60 hover:bg-sky-400/[0.22] hover:text-white',
+    'border border-sky-500/25 bg-sky-50 text-sky-700 hover:border-sky-500/50 hover:bg-sky-100 hover:text-sky-800',
 }
 
 const sizes: Record<Size, string> = {

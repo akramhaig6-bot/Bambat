@@ -104,35 +104,35 @@ export function ContactMenu({
                 width: MENU_WIDTH,
                 transform: pos.up ? 'translateY(-100%)' : undefined,
               }}
-              className="z-[90] animate-fade-up overflow-hidden rounded-2xl border border-white/10 bg-ink-900/95 p-2 shadow-glow backdrop-blur-xl"
+              className="z-[90] animate-fade-up overflow-hidden rounded-2xl border border-brand-900/10 bg-white p-2 shadow-glow backdrop-blur-xl"
             >
               <a
                 href={whatsappLink(inquiry)}
                 target="_blank"
                 rel="noreferrer noopener"
                 onClick={close}
-                className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-emerald-100 transition hover:bg-emerald-400/[0.12]"
+                className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50"
               >
-                <span className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-400/15 text-emerald-300">
+                <span className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-500/15 text-emerald-700">
                   <WhatsAppMark size={17} />
                 </span>
                 <span className="flex-1 text-right">{CONTACT.whatsappLabel}</span>
-                <Icon name="arrowLeft" size={15} className="text-emerald-300/60" />
+                <Icon name="arrowLeft" size={15} className="text-emerald-700" />
               </a>
               <a
                 href={telegramLink(inquiry)}
                 target="_blank"
                 rel="noreferrer noopener"
                 onClick={close}
-                className="mt-1 flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-sky-100 transition hover:bg-sky-400/[0.12]"
+                className="mt-1 flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-sky-700 transition hover:bg-sky-50"
               >
-                <span className="grid h-8 w-8 place-items-center rounded-lg bg-sky-400/15 text-sky-300">
+                <span className="grid h-8 w-8 place-items-center rounded-lg bg-sky-500/15 text-sky-700">
                   <TelegramMark size={17} />
                 </span>
                 <span className="flex-1 text-right">{CONTACT.telegramLabel}</span>
-                <Icon name="arrowLeft" size={15} className="text-sky-300/60" />
+                <Icon name="arrowLeft" size={15} className="text-sky-700" />
               </a>
-              <p className="mt-1.5 border-t border-white/10 px-3 pt-2 text-[11px] leading-5 text-white/40">
+              <p className="mt-1.5 border-t border-brand-900/10 px-3 pt-2 text-[11px] leading-5 text-ink-600">
                 بدون تسجيل أو إنشاء حساب
               </p>
             </div>,

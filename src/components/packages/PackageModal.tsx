@@ -29,11 +29,11 @@ export function PackageModal({ item, market, isBusiness, onClose }: PackageModal
 
   return (
     <div className="fixed inset-0 z-[80] flex items-end justify-center p-4 sm:items-center" role="dialog" aria-modal="true">
-      <div className="absolute inset-0 bg-ink-950/80 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute inset-0 bg-brand-950/40 backdrop-blur-sm" onClick={onClose} />
       <div className="card relative z-10 w-full max-w-lg animate-fade-up p-6 sm:p-8">
         <button
           onClick={onClose}
-          className="absolute left-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/70 transition hover:text-white"
+          className="absolute left-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-brand-900/10 bg-brand-50/70 text-ink-800 transition hover:text-ink-950"
           aria-label="إغلاق"
         >
           <Icon name="close" size={16} />
@@ -44,7 +44,7 @@ export function PackageModal({ item, market, isBusiness, onClose }: PackageModal
             {market.flag}
           </span>
           <div>
-            <p className="text-[12px] text-white/45">
+            <p className="text-[12px] text-ink-600">
               {BRAND.name} · {isBusiness ? 'فئة رجال الأعمال' : 'عرض استثماري'}
             </p>
             <h3 className="mt-0.5 text-lg font-bold">
@@ -53,21 +53,21 @@ export function PackageModal({ item, market, isBusiness, onClose }: PackageModal
           </div>
         </div>
 
-        <div className="mt-6 rounded-2xl border border-white/10 bg-ink-900/60 p-5">
-          <p className="text-[12px] text-white/45">رأس المال</p>
+        <div className="mt-6 rounded-2xl border border-brand-900/10 bg-white p-5">
+          <p className="text-[12px] text-ink-600">رأس المال</p>
           <p className="mt-1 font-display text-3xl font-extrabold text-gradient-brand tabular">
             {item.capital}
           </p>
         </div>
 
-        <dl className="mt-4 divide-y divide-white/[0.07] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
+        <dl className="mt-4 divide-y divide-brand-900/8 overflow-hidden rounded-2xl border border-brand-900/10 bg-brand-50/40">
           <Row label="العائد اليومي المعلن" value={item.returns} />
           <Row label="مدة الاستثمار" value={item.duration} />
           <Row label="السوق" value={`${market.flag} ${market.label}`} />
           <Row label="طريقة التواصل" value="واتساب أو تيليجرام" />
         </dl>
 
-        <p className="mt-5 text-[12px] leading-6 text-white/45">{RISK_DISCLAIMER}</p>
+        <p className="mt-5 text-[12px] leading-6 text-ink-600">{RISK_DISCLAIMER}</p>
 
         <div className="mt-6 grid gap-3 sm:grid-cols-2">
           <ContactButton
@@ -91,8 +91,8 @@ export function PackageModal({ item, market, isBusiness, onClose }: PackageModal
 function Row({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between gap-4 px-5 py-3.5">
-      <dt className="text-[13px] text-white/50">{label}</dt>
-      <dd className="text-[14px] font-bold text-white tabular">{value}</dd>
+      <dt className="text-[13px] text-ink-700">{label}</dt>
+      <dd className="text-[14px] font-bold text-ink-950 tabular">{value}</dd>
     </div>
   )
 }
