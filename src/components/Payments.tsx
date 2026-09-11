@@ -8,7 +8,7 @@ import { Icon, type IconName } from './ui/Icon'
 export function Payments() {
   return (
     <section id="payments" className="relative scroll-mt-28 py-20 lg:py-28">
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute left-1/2 top-1/4 h-[300px] w-[520px] -translate-x-1/2 rounded-full bg-brand-800/20 blur-3xl" />
       </div>
 

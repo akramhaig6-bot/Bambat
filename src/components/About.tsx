@@ -14,7 +14,7 @@ const points = [
 export function About() {
   return (
     <section id="about" className="relative scroll-mt-28 py-20 lg:py-28">
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute right-[-15%] top-1/3 h-[320px] w-[320px] rounded-full bg-brand-800/25 blur-3xl" />
       </div>
 
