@@ -1,0 +1,144 @@
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
+import { createPortal } from 'react-dom'
+import { CONTACT } from '../../config/site'
+import { telegramLink, whatsappLink } from '../../data/content'
+import { Icon } from './Icon'
+import { TelegramMark, WhatsAppMark } from './Button'
+
+const MENU_WIDTH = 240
+
+type ContactMenuProps = {
+  /** نص الاستفسار الذي يُرسل تلقائيًا */
+  inquiry?: string
+  trigger: ReactNode
+  triggerClassName?: string
+  align?: 'start' | 'end' | 'center'
+  className?: string
+}
+
+/**
+ * قائمة منسدلة بخياري واتساب وتيليجرام.
+ * تُعرض عبر Portal حتى لا تتأثر بـ overflow داخل البطاقات.
+ */
+export function ContactMenu({
+  inquiry,
+  trigger,
+  triggerClassName = '',
+  align = 'end',
+  className = '',
+}: ContactMenuProps) {
+  const [open, setOpen] = useState(false)
+  const [pos, setPos] = useState<{ top: number; left: number; up: boolean } | null>(null)
+  const wrapperRef = useRef<HTMLDivElement>(null)
+  const menuRef = useRef<HTMLDivElement>(null)
+
+  const close = useCallback(() => {
+    setOpen(false)
+    setPos(null)
+  }, [])
+
+  const place = useCallback(() => {
+    const rect = wrapperRef.current?.getBoundingClientRect()
+    if (!rect) return
+    const estimatedHeight = menuRef.current?.offsetHeight ?? 165
+    const spaceBelow = window.innerHeight - rect.bottom
+    const up = spaceBelow < estimatedHeight + 16 && rect.top > spaceBelow
+    let left =
+      align === 'end'
+        ? rect.right - MENU_WIDTH
+        : align === 'start'
+          ? rect.left
+          : rect.left + rect.width / 2 - MENU_WIDTH / 2
+    left = Math.min(Math.max(8, left), window.innerWidth - MENU_WIDTH - 8)
+    setPos({ top: up ? rect.top - 8 : rect.bottom + 8, left, up })
+  }, [align])
+
+  useLayoutEffect(() => {
+    if (open) place()
+  }, [open, place])
+
+  useEffect(() => {
+    if (!open) return
+    const onPointerDown = (e: MouseEvent) => {
+      const target = e.target as Node
+      if (wrapperRef.current?.contains(target)) return
+      if (menuRef.current?.contains(target)) return
+      close()
+    }
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && close()
+    const onReflow = () => place()
+
+    document.addEventListener('mousedown', onPointerDown)
+    document.addEventListener('keydown', onKey)
+    window.addEventListener('scroll', close, true)
+    window.addEventListener('resize', onReflow)
+    return () => {
+      document.removeEventListener('mousedown', onPointerDown)
+      document.removeEventListener('keydown', onKey)
+      window.removeEventListener('scroll', close, true)
+      window.removeEventListener('resize', onReflow)
+    }
+  }, [open, close, place])
+
+  return (
+    <div className={`relative inline-block ${className}`} ref={wrapperRef}>
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        aria-haspopup="menu"
+        className={triggerClassName}
+      >
+        {trigger}
+      </button>
+
+      {open && pos
+        ? createPortal(
+            <div
+              ref={menuRef}
+              role="menu"
+              style={{
+                position: 'fixed',
+                top: pos.top,
+                left: pos.left,
+                width: MENU_WIDTH,
+                transform: pos.up ? 'translateY(-100%)' : undefined,
+              }}
+              className="z-[90] animate-fade-up overflow-hidden rounded-2xl border border-white/10 bg-ink-900/95 p-2 shadow-glow backdrop-blur-xl"
+            >
+              <a
+                href={whatsappLink(inquiry)}
+                target="_blank"
+                rel="noreferrer noopener"
+                onClick={close}
+                className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-emerald-100 transition hover:bg-emerald-400/[0.12]"
+              >
+                <span className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-400/15 text-emerald-300">
+                  <WhatsAppMark size={17} />
+                </span>
+                <span className="flex-1 text-right">{CONTACT.whatsappLabel}</span>
+                <Icon name="arrowLeft" size={15} className="text-emerald-300/60" />
+              </a>
+              <a
+                href={telegramLink(inquiry)}
+                target="_blank"
+                rel="noreferrer noopener"
+                onClick={close}
+                className="mt-1 flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-sky-100 transition hover:bg-sky-400/[0.12]"
+              >
+                <span className="grid h-8 w-8 place-items-center rounded-lg bg-sky-400/15 text-sky-300">
+                  <TelegramMark size={17} />
+                </span>
+                <span className="flex-1 text-right">{CONTACT.telegramLabel}</span>
+                <Icon name="arrowLeft" size={15} className="text-sky-300/60" />
+              </a>
+              <p className="mt-1.5 border-t border-white/10 px-3 pt-2 text-[11px] leading-5 text-white/40">
+                بدون تسجيل أو إنشاء حساب
+              </p>
+            </div>,
+            document.body,
+          )
+        : null}
+    </div>
+  )
+}
