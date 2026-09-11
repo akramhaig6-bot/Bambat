@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* تعويض ارتفاع النافبار الثابت */
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    @apply bg-ink-950 font-sans text-white/85 antialiased;
+    background-image: radial-gradient(
+        1100px 600px at 85% -10%,
+        rgba(27, 167, 110, 0.22),
+        transparent 60%
+      ),
+      radial-gradient(900px 500px at 5% 5%, rgba(11, 83, 56, 0.35), transparent 60%),
+      linear-gradient(180deg, #03110b 0%, #04150d 45%, #03110b 100%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-brand-500/35 text-white;
+  }
+
+  /* شريط تمرير أنيق */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #05180f;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #11422b;
+    border-radius: 999px;
+    border: 2px solid #05180f;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #175135;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-bold tracking-tight text-white;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-400/70 ring-offset-2 ring-offset-ink-950;
+  }
+}
+
+@layer components {
+  /* حاوية الصفحة */
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+  }
+
+  /* بطاقة زجاجية داكنة */
+  .card {
+    @apply relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] shadow-glow backdrop-blur-xl;
+  }
+
+  .card-hover {
+    @apply transition duration-300 hover:-translate-y-1 hover:border-brand-400/40 hover:bg-white/[0.06];
+  }
+
+  /* تدرج أخضر للعناوين */
+  .text-gradient {
+    @apply bg-gradient-to-l from-white via-white to-brand-200 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-brand {
+    @apply bg-gradient-to-l from-brand-200 via-brand-300 to-brand-500 bg-clip-text text-transparent;
+  }
+
+  /* شريط علوي رقيق للبطاقات */
+  .card-top-glow::before {
+    content: '';
+    @apply pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-l from-transparent via-brand-300/70 to-transparent;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-brand-400/25 bg-brand-500/10 px-4 py-1.5 text-xs font-semibold text-brand-200 sm:text-sm;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-gradient-to-l from-transparent via-white/[0.12] to-transparent;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .mask-fade-x {
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
