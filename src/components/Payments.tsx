@@ -7,7 +7,7 @@ import { Icon, type IconName } from './ui/Icon'
 
 export function Payments() {
   return (
-    <section id="payments" className="relative scroll-mt-28 py-20 lg:py-28">
+    <section id="payments" className="relative scroll-mt-28 py-12 sm:py-16 lg:py-20">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute left-1/2 top-1/4 h-[300px] w-[520px] -translate-x-1/2 rounded-full bg-brand-200/45 blur-3xl" />
       </div>
@@ -23,7 +23,7 @@ export function Payments() {
           }
         />
 
-        <div className="mx-auto mt-12 grid max-w-3xl gap-5 sm:grid-cols-2">
+        <div className="mx-auto mt-8 grid max-w-3xl gap-5 sm:grid-cols-2">
           {PAYMENT_METHODS.map((method, i) => (
             <Reveal key={method.title} delay={i * 110}>
               <article className="card card-top-glow card-hover flex items-center gap-5 p-6">

@@ -6,7 +6,7 @@ import { ContactMenu } from './ui/ContactMenu'
 
 export function Ipo() {
   return (
-    <section id="ipo" className="relative scroll-mt-28 py-20 lg:py-28">
+    <section id="ipo" className="relative scroll-mt-28 py-12 sm:py-16 lg:py-20">
       <div className="container-x">
         <SectionHeading
           eyebrow="الاكتتابات"
@@ -19,7 +19,7 @@ export function Ipo() {
           description="نوفر مساحة للتعريف بالفرص الاستثمارية والاكتتابات المتاحة، مع عرض أهم المعلومات والشروط قبل اتخاذ قرار المشاركة."
         />
 
-        <div className="mx-auto mt-14 grid max-w-4xl gap-5 md:grid-cols-2">
+        <div className="mx-auto mt-9 sm:mt-10 grid max-w-4xl gap-5 md:grid-cols-2">
           {/* بطاقة الاكتتاب 1 */}
           <Reveal>
             <article className="card card-top-glow card-hover flex h-full flex-col p-7">

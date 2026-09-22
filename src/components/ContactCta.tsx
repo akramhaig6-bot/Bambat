@@ -4,7 +4,7 @@ import { Icon } from './ui/Icon'
 
 export function ContactCta() {
   return (
-    <section id="contact" className="relative scroll-mt-28 py-20 lg:py-28">
+    <section id="contact" className="relative scroll-mt-28 py-12 sm:py-16 lg:py-20">
       <div className="container-x">
         <Reveal>
           <div className="relative overflow-hidden rounded-[2rem] border border-brand-400/20 bg-gradient-to-bl from-white via-brand-50/70 to-white p-8 text-center shadow-glow sm:p-12 lg:p-16">

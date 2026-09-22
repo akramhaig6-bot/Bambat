@@ -4,7 +4,7 @@ import { SectionHeading } from './ui/SectionHeading'
 
 export function Journey() {
   return (
-    <section id="journey" className="relative scroll-mt-28 py-20 lg:py-28">
+    <section id="journey" className="relative scroll-mt-28 py-12 sm:py-16 lg:py-20">
       <div className="container-x">
         <div className="relative overflow-hidden rounded-[2rem] border border-brand-900/10 bg-gradient-to-b from-brand-50/70 to-white p-7 sm:p-10 lg:p-14">
           <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -24,7 +24,7 @@ export function Journey() {
               description="خمس خطوات بسيطة من الاستعراض حتى المشاركة — بدون تسجيل أو لوحة تحكم."
             />
 
-            <ol className="relative mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+            <ol className="relative mt-9 sm:mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
               {JOURNEY_STEPS.map((step, i) => (
                 <Reveal key={step.n} delay={i * 100} as="li">
                   <div className="group relative h-full">

@@ -5,7 +5,7 @@ import { Icon } from './ui/Icon'
 
 export function Pamm() {
   return (
-    <section id="pamm" className="relative scroll-mt-28 py-20 lg:py-28">
+    <section id="pamm" className="relative scroll-mt-28 py-12 sm:py-16 lg:py-20">
       <div className="container-x">
         <div className="relative overflow-hidden rounded-[2rem] border border-brand-400/[0.18] bg-gradient-to-bl from-white via-brand-50/70 to-white shadow-glow">
           {/* زخرفة */}

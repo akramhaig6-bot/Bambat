@@ -138,3 +138,135 @@
     transition-duration: 0.001ms !important;
   }
 }
+
+/* Content hierarchy: products, participation, then a single closing contact area. */
+html {
+  scroll-padding-top: 0;
+}
+
+.product-region {
+  border-block: 1px solid #e2eee7;
+  background: linear-gradient(180deg, #f7fcf9, #fff 65%);
+}
+
+.participation-region > section + section {
+  padding-top: 1rem;
+}
+
+.contact-region {
+  padding-block: 1rem 3rem;
+  background: #f7fcf9;
+  border-top: 1px solid #e2eee7;
+}
+
+.contact-region > section {
+  padding-block: 1rem;
+}
+
+.contact-region #contact > .container-x > div > div {
+  padding-block: 2rem;
+  box-shadow: none;
+}
+
+.package-results {
+  scroll-margin-top: 12rem;
+}
+
+[role='tabpanel'][hidden] {
+  display: none;
+}
+
+[role='tabpanel'] section {
+  scroll-margin-top: 12rem;
+  padding-top: 2rem;
+}
+
+.card {
+  box-shadow: 0 4px 20px -12px rgb(8 67 44 / 14%);
+}
+
+#about .card {
+  box-shadow: none;
+}
+
+#journey ol .card {
+  border: 0;
+  border-radius: 0;
+  border-inline-start: 2px solid #a8e7c7;
+  background: transparent;
+  box-shadow: none;
+}
+
+#durations article {
+  padding: 1.5rem;
+}
+
+#durations article h3 {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .package-results,
+  [role='tabpanel'] section {
+    scroll-margin-top: 10rem;
+  }
+}
+
+@media (max-width: 639px) {
+  #home .container-x > div:last-child {
+    max-width: 28rem;
+    width: 100%;
+  }
+
+  #home h1 {
+    font-size: 2.15rem;
+  }
+
+  #home .card {
+    border-radius: 1rem;
+  }
+
+  #journey ol {
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-region {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    align-items: stretch;
+    padding: 2.5rem max(2rem, calc((100vw - 1280px) / 2 + 2rem));
+    gap: 1.5rem;
+  }
+
+  .contact-region > section > .container-x {
+    height: 100%;
+    padding-inline: 0;
+  }
+
+  .contact-region > section > .container-x > div,
+  .contact-region > section > .container-x > div > div {
+    height: 100%;
+  }
+
+  .contact-region > section > .container-x > div > div {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .contact-region h2 {
+    font-size: 2rem;
+  }
+
+  .contact-region #contact .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .contact-region #contact a {
+    padding: 1rem;
+  }
+}

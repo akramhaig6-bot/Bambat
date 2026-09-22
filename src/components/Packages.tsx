@@ -1,6 +1,6 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { flushSync } from 'react-dom'
 import { MARKETS, MARKET_GROUPS, type MarketGroup, type PackageItem } from '../data/content'
-import { useActiveSection } from '../hooks/useActiveSection'
 import { SectionHeading } from './ui/SectionHeading'
 import { MarketTabs } from './packages/MarketTabs'
 import { MarketSection } from './packages/MarketSection'
@@ -15,8 +15,17 @@ type ModalState = {
 
 export function Packages() {
   const [modal, setModal] = useState<ModalState | null>(null)
-  const marketIds = useMemo(() => MARKETS.map((m) => m.sectionId), [])
-  const activeMarket = useActiveSection(marketIds, 220)
+  const [activeMarket, setActiveMarket] = useState('market-sa')
+
+  useEffect(() => {
+    const onNavigate = (event: Event) => {
+      const id = (event as CustomEvent<string>).detail
+      const market = MARKETS.find((m) => m.sectionId === id || `business-${m.id}` === id)
+      if (market) flushSync(() => setActiveMarket(market.sectionId))
+    }
+    window.addEventListener('section:navigate', onNavigate)
+    return () => window.removeEventListener('section:navigate', onNavigate)
+  }, [])
 
   const modalMarket = MARKETS.find((m) => m.id === modal?.marketId) ?? null
 
@@ -42,14 +51,25 @@ export function Packages() {
       </section>
 
       {/* منطقة التبويبات الثابتة + الأقسام */}
-      <div className="relative">
+      <div className="relative mt-8 pb-8">
         <MarketTabs active={activeMarket} />
 
         {MARKET_GROUPS.map((group) => (
-          <MarketSection key={group.market} group={group} onOpen={openItem} />
+          <div
+            key={group.market}
+            id={`panel-${group.market}`}
+            role="tabpanel"
+            aria-labelledby={`tab-${group.market}`}
+            hidden={activeMarket !== `market-${group.market}`}
+            tabIndex={0}
+          >
+            <MarketSection group={group} onOpen={openItem} />
+          </div>
         ))}
 
-        <UsdSection onOpen={(item) => setModal({ item, marketId: 'usd', isBusiness: false })} />
+        <div id="panel-usd" role="tabpanel" aria-labelledby="tab-usd" hidden={activeMarket !== 'market-usd'} tabIndex={0}>
+          <UsdSection onOpen={(item) => setModal({ item, marketId: 'usd', isBusiness: false })} />
+        </div>
         <div className="h-4" />
       </div>
 

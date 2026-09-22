@@ -24,8 +24,8 @@ export const NAV_LINKS = [
   { id: 'home', label: 'الرئيسية' },
   { id: 'about', label: 'من نحن' },
   { id: 'services', label: 'خدماتنا' },
-  { id: 'pamm', label: 'PAMM' },
   { id: 'packages', label: 'الباقات' },
+  { id: 'pamm', label: 'PAMM' },
   { id: 'ipo', label: 'الاكتتابات' },
   { id: 'faq', label: 'الأسئلة الشائعة' },
 ] as const

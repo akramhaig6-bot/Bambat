@@ -65,7 +65,21 @@ export function ContactMenu({
       if (menuRef.current?.contains(target)) return
       close()
     }
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && close()
+    const frame = requestAnimationFrame(() => menuRef.current?.querySelector<HTMLAnchorElement>('a')?.focus())
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        close()
+        wrapperRef.current?.querySelector('button')?.focus()
+      }
+      if (!['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(e.key)) return
+      const links = Array.from(menuRef.current?.querySelectorAll<HTMLAnchorElement>('a') ?? [])
+      if (!links.length) return
+      e.preventDefault()
+      const index = links.indexOf(document.activeElement as HTMLAnchorElement)
+      const next = e.key === 'Home' ? 0 : e.key === 'End' ? links.length - 1
+        : (index + (e.key === 'ArrowDown' ? 1 : -1) + links.length) % links.length
+      links[next]?.focus()
+    }
     const onReflow = () => place()
 
     document.addEventListener('mousedown', onPointerDown)
@@ -73,6 +87,7 @@ export function ContactMenu({
     window.addEventListener('scroll', close, true)
     window.addEventListener('resize', onReflow)
     return () => {
+      cancelAnimationFrame(frame)
       document.removeEventListener('mousedown', onPointerDown)
       document.removeEventListener('keydown', onKey)
       window.removeEventListener('scroll', close, true)
@@ -97,6 +112,9 @@ export function ContactMenu({
             <div
               ref={menuRef}
               role="menu"
+              onBlur={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget) && !wrapperRef.current?.contains(event.relatedTarget)) close()
+              }}
               style={{
                 position: 'fixed',
                 top: pos.top,
@@ -107,6 +125,7 @@ export function ContactMenu({
               className="z-[90] animate-fade-up overflow-hidden rounded-2xl border border-brand-900/10 bg-white p-2 shadow-glow backdrop-blur-xl"
             >
               <a
+                role="menuitem"
                 href={whatsappLink(inquiry)}
                 target="_blank"
                 rel="noreferrer noopener"
@@ -120,6 +139,7 @@ export function ContactMenu({
                 <Icon name="arrowLeft" size={15} className="text-emerald-700" />
               </a>
               <a
+                role="menuitem"
                 href={telegramLink(inquiry)}
                 target="_blank"
                 rel="noreferrer noopener"

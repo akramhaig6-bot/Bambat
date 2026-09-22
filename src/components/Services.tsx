@@ -6,7 +6,7 @@ import { Icon, type IconName } from './ui/Icon'
 
 export function Services() {
   return (
-    <section id="services" className="relative scroll-mt-28 py-20 lg:py-28">
+    <section id="services" className="relative scroll-mt-28 py-12 sm:py-16 lg:py-20">
       <div className="container-x">
         <SectionHeading
           eyebrow="خدماتنا"
@@ -19,7 +19,7 @@ export function Services() {
           description="اختر المسار المناسب لك، ثم تواصل مع فريقنا مباشرة عبر واتساب أو تيليجرام لمعرفة التفاصيل والشروط."
         />
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-9 sm:mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((service, i) => (
             <Reveal key={service.title} delay={i * 100}>
               <article className="card card-top-glow card-hover group flex h-full flex-col p-6 sm:p-7">

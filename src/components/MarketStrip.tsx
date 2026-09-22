@@ -5,7 +5,7 @@ import { Icon } from './ui/Icon'
 
 export function MarketStrip() {
   return (
-    <section className="relative -mt-4 pb-8 sm:pb-12">
+    <section className="relative pt-8 pb-2">
       <div className="container-x">
         <Reveal>
           <div className="card card-top-glow flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:gap-6 sm:p-6">
@@ -18,7 +18,7 @@ export function MarketStrip() {
 
             <div className="hidden h-10 w-px bg-brand-900/10 sm:block" />
 
-            <div className="no-scrollbar -mx-1 flex flex-1 snap-x items-center gap-2 overflow-x-auto px-1 pb-1 sm:gap-3 sm:overflow-visible">
+            <div className="no-scrollbar -mx-1 grid grid-cols-2 sm:flex flex-1 snap-x items-center gap-2 overflow-x-auto px-1 pb-1 sm:gap-3 sm:flex-wrap">
               {MARKETS.map((m) => (
                 <button
                   key={m.id}

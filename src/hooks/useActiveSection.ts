@@ -9,7 +9,7 @@ export function useActiveSection(ids: string[], offset = 180) {
       let current = ids[0] ?? ''
       for (const id of ids) {
         const el = document.getElementById(id)
-        if (!el) continue
+        if (!el || !el.getClientRects().length) continue
         const top = el.getBoundingClientRect().top
         if (top - offset <= 0) current = id
       }
@@ -28,9 +28,15 @@ export function useActiveSection(ids: string[], offset = 180) {
 }
 
 /** تمرير ناعم إلى قسم مع مراعاة ارتفاع النافبار */
-export function scrollToId(id: string) {
-  const el = document.getElementById(id)
-  if (!el) return
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' })
+export function scrollToId(id: string, updateHistory = true) {
+  window.dispatchEvent(new CustomEvent('section:navigate', { detail: id }))
+  requestAnimationFrame(() => {
+    const el = document.getElementById(id)
+    if (!el) return
+    if (updateHistory && window.location.hash !== `#${id}`) {
+      window.history.pushState(null, '', `#${id}`)
+    }
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' })
+  })
 }

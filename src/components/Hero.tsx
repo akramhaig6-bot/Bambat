@@ -9,7 +9,7 @@ const statIcons: IconName[] = ['chart', 'sparkle', 'wallet']
 
 export function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden pt-32 pb-16 sm:pt-40 lg:pt-44 lg:pb-24">
+    <section id="home" className="relative overflow-hidden pt-28 pb-10 sm:pt-32 lg:pt-36 lg:pb-16">
       {/* خلفية */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-grid-fade bg-grid opacity-[0.35] [mask-image:radial-gradient(70%_60%_at_50%_0%,black,transparent)]" />
@@ -17,7 +17,7 @@ export function Hero() {
         <div className="absolute bottom-[-10%] left-[-5%] h-[360px] w-[360px] rounded-full bg-brand-200/60 blur-3xl" />
       </div>
 
-      <div className="container-x grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
+      <div className="container-x grid items-center gap-9 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
         {/* النص */}
         <div className="text-center lg:text-right">
           <Reveal>
@@ -46,25 +46,25 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={260}>
-            <div className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center lg:justify-start">
+            <div className="mt-7 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
               <button
                 onClick={() => scrollToId('packages')}
-                className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-l from-brand-400 to-brand-600 px-7 py-4 text-base font-bold text-white shadow-[0_14px_40px_-14px_rgba(18,164,105,0.55)] transition hover:from-brand-500 hover:to-brand-700"
+                className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-l from-brand-400 to-brand-600 px-5 py-3.5 text-base font-bold text-white shadow-[0_14px_40px_-14px_rgba(18,164,105,0.55)] transition hover:from-brand-500 hover:to-brand-700"
               >
                 استعرض الباقات
                 <Icon name="arrowLeft" size={18} className="transition-transform group-hover:-translate-x-1" />
               </button>
 
               <button
-                onClick={() => scrollToId('packages')}
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-brand-500/30 bg-white px-7 py-4 text-base font-semibold text-brand-700 shadow-glow-soft transition hover:border-brand-500/60 hover:bg-brand-50 hover:text-brand-800"
+                onClick={() => scrollToId('services')}
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-brand-500/30 bg-white px-5 py-3.5 text-base font-semibold text-brand-700 shadow-glow-soft transition hover:border-brand-500/60 hover:bg-brand-50 hover:text-brand-800"
               >
                 اكتشف عروضنا
               </button>
 
               <ContactMenu
                 align="center"
-                triggerClassName="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-brand-900/15 bg-brand-50/70 px-7 py-4 text-base font-semibold text-ink-950 backdrop-blur transition hover:border-brand-400/50 hover:bg-brand-500/10 sm:w-auto"
+                triggerClassName="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-brand-900/15 bg-brand-50/70 px-5 py-3.5 text-base font-semibold text-ink-950 backdrop-blur transition hover:border-brand-400/50 hover:bg-brand-500/10 sm:w-auto"
                 trigger={
                   <>
                     تواصل معنا
@@ -77,7 +77,7 @@ export function Hero() {
 
           {/* 3 مؤشرات */}
           <Reveal delay={340}>
-            <div className="mt-12 grid gap-3 sm:grid-cols-3">
+            <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
               {HERO_STATS.map((stat, i) => (
                 <div
                   key={stat.title}

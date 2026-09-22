@@ -9,7 +9,7 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section id="faq" className="relative scroll-mt-28 py-20 lg:py-28">
+    <section id="faq" className="relative scroll-mt-28 py-12 sm:py-16 lg:py-20">
       <div className="container-x">
         <SectionHeading
           eyebrow="الأسئلة الشائعة"
@@ -22,7 +22,7 @@ export function Faq() {
           description="كل ما تحتاج معرفته قبل التواصل مع فريقنا."
         />
 
-        <div className="mx-auto mt-14 max-w-3xl space-y-3">
+        <div className="mx-auto mt-9 sm:mt-10 max-w-3xl space-y-3">
           {FAQ_ITEMS.map((item, i) => {
             const isOpen = open === i
             return (
@@ -34,6 +34,8 @@ export function Faq() {
                 >
                   <button
                     onClick={() => setOpen(isOpen ? null : i)}
+                    id={`faq-question-${i}`}
+                    aria-controls={`faq-answer-${i}`}
                     aria-expanded={isOpen}
                     className="flex w-full items-center justify-between gap-4 px-6 py-5 text-right"
                   >
@@ -58,6 +60,10 @@ export function Faq() {
                     />
                   </button>
                   <div
+                    id={`faq-answer-${i}`}
+                    role="region"
+                    aria-labelledby={`faq-question-${i}`}
+                    aria-hidden={!isOpen}
                     className={`grid transition-all duration-300 ease-out ${
                       isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
                     }`}
