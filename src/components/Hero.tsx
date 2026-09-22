@@ -74,7 +74,7 @@ export function Hero() {
                 onClick={() => scrollToId('advantages')}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-brand-900/15 bg-brand-50/70 px-5 py-3.5 text-base font-semibold text-ink-950 backdrop-blur transition hover:border-brand-400/50 hover:bg-brand-500/10 sm:w-auto"
               >
-                كيف نضمن تفوقك؟
+                كيف نتقدم بك في الاستثمار؟
                 <Icon name="arrowLeft" size={18} />
               </button>
             </div>
@@ -181,7 +181,7 @@ function HeroVisual() {
           </div>
 
           <div className="mt-6 border-t border-brand-900/10 pt-5">
-            <p className="text-[11.5px] font-bold text-ink-950">كيف نضمن تفوقك في السوق؟</p>
+            <p className="text-[11.5px] font-bold text-ink-950">كيف نتقدم بك في الاستثمار؟</p>
             <ul className="mt-3 space-y-2.5">
               {ADVANTAGES.map((item) => (
                 <li key={item.title} className="flex items-center gap-2.5">

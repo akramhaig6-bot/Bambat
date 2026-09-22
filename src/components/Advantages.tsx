@@ -4,7 +4,7 @@ import { ContactMenu } from './ui/ContactMenu'
 import { Reveal } from './ui/Reveal'
 import { SectionHeading } from './ui/SectionHeading'
 
-/** قسم «كيف نضمن تفوقك في السوق؟» — الركائز الثلاث للمجتمع */
+/** قسم «كيف نتقدم بك في الاستثمار؟» — الركائز الثلاث للمجتمع */
 export function Advantages() {
   return (
     <section id="advantages" className="relative scroll-mt-28 py-12 sm:py-16 lg:py-20">
@@ -19,7 +19,7 @@ export function Advantages() {
           icon="rocket"
           title={
             <>
-              كيف نضمن <span className="text-gradient-brand">تفوقك في السوق؟</span>
+              كيف نتقدم بك <span className="text-gradient-brand">في الاستثمار؟</span>
             </>
           }
           description="ثلاث ركائز نبني عليها كل توصية نشاركها مع المجتمع: انتقاء مبكر للاكتتابات، قراءة حجمية دقيقة لإشارات البامب، وفحص كامل للعقود قبل النشر."
