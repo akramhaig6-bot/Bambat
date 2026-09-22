@@ -162,7 +162,7 @@ function HeroVisual() {
               { flag: '🇸🇦', name: 'السعودية', value: 'ريال سعودي', tone: 'from-brand-400/80 to-brand-600/40' },
               { flag: '🇦🇪', name: 'الإمارات', value: 'درهم', tone: 'from-brand-300/70 to-brand-700/40' },
               { flag: '🇰🇼', name: 'الكويت', value: 'دينار', tone: 'from-emerald-300/70 to-emerald-700/40' },
-              { flag: '💵', name: 'الدولار', value: 'USD', tone: 'from-brand-200 to-brand-600/60' },
+              { flag: '💵', name: '+جميع الدول العربية', value: 'USDT', tone: 'from-brand-200 to-brand-600/60' },
             ].map((row) => (
               <div
                 key={row.name}
