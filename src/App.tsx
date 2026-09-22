@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { scrollToId } from './hooks/useActiveSection'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { MarketStrip } from './components/MarketStrip'
@@ -16,6 +18,20 @@ import { Footer } from './components/Footer'
 import { ScrollProgress } from './components/ui/ScrollProgress'
 
 export default function App() {
+  useEffect(() => {
+    const restore = () => {
+      const id = window.location.hash.slice(1) || 'home'
+      scrollToId(id, false)
+    }
+    restore()
+    window.addEventListener('popstate', restore)
+    window.addEventListener('hashchange', restore)
+    return () => {
+      window.removeEventListener('popstate', restore)
+      window.removeEventListener('hashchange', restore)
+    }
+  }, [])
+
   return (
     <div className="relative min-h-screen overflow-x-clip">
       <ScrollProgress />
@@ -23,18 +39,24 @@ export default function App() {
 
       <main>
         <Hero />
-        <MarketStrip />
         <About />
         <Services />
-        <Pamm />
-        <Packages />
-        <Durations />
-        <Payments />
-        <Journey />
-        <Ipo />
-        <ContactCta />
+        <div className="product-region">
+          <MarketStrip />
+          <Packages />
+          <Pamm />
+          <Ipo />
+        </div>
+        <div className="participation-region">
+          <Journey />
+          <Durations />
+          <Payments />
+        </div>
         <Faq />
-        <FinalCta />
+        <div className="contact-region">
+          <ContactCta />
+          <FinalCta />
+        </div>
       </main>
 
       <Footer />

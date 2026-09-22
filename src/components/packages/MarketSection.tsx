@@ -18,8 +18,8 @@ export function MarketSection({ group, onOpen }: MarketSectionProps) {
         <div className="container-x">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <Reveal>
-              <h2 className="flex items-center gap-3 text-2xl font-extrabold sm:text-3xl">
-                <span aria-hidden>{market.flag}</span>
+              <h2 className="text-xl font-extrabold leading-relaxed sm:text-3xl sm:leading-relaxed">
+                <span aria-hidden className="ml-2 inline-block align-middle">{market.flag}</span>
                 عروض الاستثمار — <span className="text-gradient-brand">{market.label}</span>
               </h2>
             </Reveal>

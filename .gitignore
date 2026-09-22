@@ -12,3 +12,6 @@ yarn-error.log*
 .env.*
 !.env.example
 *.tsbuildinfo
+
+# Local browser checks and screenshots
+.cache/

@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+import { createPortal } from 'react-dom'
+import { useDialog } from '../hooks/useDialog'
 import { BRAND, RISK_FOOTER } from '../config/site'
 import { Icon } from './ui/Icon'
 
@@ -50,28 +51,19 @@ export function LegalModal({
   doc: LegalKey | null
   onClose: () => void
 }) {
-  useEffect(() => {
-    if (!doc) return
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose()
-    document.addEventListener('keydown', onKey)
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.removeEventListener('keydown', onKey)
-      document.body.style.overflow = ''
-    }
-  }, [doc, onClose])
+  const dialogRef = useDialog(Boolean(doc), onClose)
 
   if (!doc) return null
   const content = LEGAL_CONTENT[doc]
 
-  return (
+  return createPortal(
     <div
       className="fixed inset-0 z-[80] flex items-end justify-center p-4 sm:items-center"
       role="dialog"
-      aria-modal="true"
+      aria-modal="true" aria-labelledby="legal-dialog-title"
     >
       <div className="absolute inset-0 bg-brand-950/40 backdrop-blur-sm" onClick={onClose} />
-      <div className="card relative z-10 max-h-[85vh] w-full max-w-2xl animate-fade-up overflow-y-auto p-6 sm:p-9">
+      <div ref={dialogRef} tabIndex={-1} className="card relative z-10 max-h-[calc(100dvh-2rem)] overscroll-contain w-full max-w-2xl animate-fade-up overflow-y-auto p-6 sm:p-9">
         <button
           onClick={onClose}
           className="absolute left-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-brand-900/10 bg-brand-50/70 text-ink-800 transition hover:text-ink-950"
@@ -80,7 +72,7 @@ export function LegalModal({
           <Icon name="close" size={16} />
         </button>
 
-        <h3 className="text-xl font-extrabold">{content.title}</h3>
+        <h3 id="legal-dialog-title" className="pl-10 text-xl font-extrabold">{content.title}</h3>
         <div className="mt-5 space-y-4">
           {content.body.map((p, i) => (
             <p key={i} className="text-[14px] leading-8 text-ink-800">
@@ -100,6 +92,7 @@ export function LegalModal({
           إغلاق
         </button>
       </div>
-    </div>
+    </div>,
+    document.body,
   )
 }

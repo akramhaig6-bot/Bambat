@@ -1,3 +1,5 @@
+import { createPortal } from 'react-dom'
+import { useDialog } from '../hooks/useDialog'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { BRAND, CONTACT, NAV_LINKS } from '../config/site'
 import { useActiveSection, scrollToId } from '../hooks/useActiveSection'
@@ -10,6 +12,7 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [contactOpen, setContactOpen] = useState(false)
   const contactRef = useRef<HTMLDivElement>(null)
+  const mobileRef = useDialog(menuOpen, () => setMenuOpen(false))
 
   const ids = useMemo(() => NAV_LINKS.map((l) => l.id as string), [])
   const active = useActiveSection(ids, 140)
@@ -40,11 +43,11 @@ export function Navbar() {
   }, [])
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : ''
-    return () => {
-      document.body.style.overflow = ''
-    }
-  }, [menuOpen])
+    const query = window.matchMedia('(min-width: 1024px)')
+    const closeOnDesktop = () => { if (query.matches) setMenuOpen(false) }
+    query.addEventListener('change', closeOnDesktop)
+    return () => query.removeEventListener('change', closeOnDesktop)
+  }, [])
 
   const handleNav = (id: string) => {
     setMenuOpen(false)
@@ -81,14 +84,14 @@ export function Navbar() {
         </a>
 
         {/* روابط التنقل — سطح المكتب */}
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="التنقل الرئيسي">
+        <nav className="hidden items-center gap-0 xl:gap-1 lg:flex" aria-label="التنقل الرئيسي">
           {NAV_LINKS.map((link) => {
             const isActive = active === link.id
             return (
               <button
                 key={link.id}
                 onClick={() => handleNav(link.id)}
-                className={`relative rounded-xl px-3.5 py-2 text-[14px] font-medium transition ${
+                className={`relative rounded-xl px-2 xl:px-3.5 py-2 text-[14px] font-medium transition ${
                   isActive ? 'text-ink-950' : 'text-ink-800 hover:text-ink-950'
                 }`}
               >
@@ -152,6 +155,8 @@ export function Navbar() {
             onClick={() => setMenuOpen(true)}
             className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-brand-900/10 bg-brand-50/70 text-ink-950 lg:hidden"
             aria-label="فتح القائمة"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
           >
             <Icon name="menu" size={20} />
           </button>
@@ -159,9 +164,11 @@ export function Navbar() {
       </div>
 
       {/* الشريط الجانبي (قائمة الهاتف) — خلفية خضراء صلبة غير شفافة */}
-      <div
+      {menuOpen && createPortal(<div
         className={`fixed inset-0 z-[60] lg:hidden ${menuOpen ? '' : 'pointer-events-none'}`}
-        aria-hidden={!menuOpen}
+        role="dialog"
+        aria-modal="true"
+        aria-label="تنقل الهاتف"
       >
         <div
           onClick={() => setMenuOpen(false)}
@@ -169,7 +176,10 @@ export function Navbar() {
             menuOpen ? 'opacity-100' : 'opacity-0'
           }`}
         />
-        <aside
+        <div
+          ref={mobileRef}
+          id="mobile-navigation"
+          tabIndex={-1}
           className={`side-panel absolute inset-y-0 right-0 flex w-[86%] max-w-sm flex-col overflow-y-auto p-6 shadow-2xl transition-transform duration-300 ${
             menuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
@@ -230,8 +240,8 @@ export function Navbar() {
               بدون تسجيل — محادثة مباشرة مع فريق {BRAND.name} عبر واتساب أو تيليجرام.
             </p>
           </div>
-        </aside>
-      </div>
+        </div>
+      </div>, document.body)}
     </header>
   )
 }

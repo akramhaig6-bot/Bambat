@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+import { createPortal } from 'react-dom'
+import { useDialog } from '../../hooks/useDialog'
 import { BRAND, RISK_DISCLAIMER } from '../../config/site'
 import { telegramLink, whatsappLink, type Market, type PackageItem } from '../../data/content'
 import { ContactButton } from '../ui/Button'
@@ -12,25 +13,16 @@ type PackageModalProps = {
 }
 
 export function PackageModal({ item, market, isBusiness, onClose }: PackageModalProps) {
-  useEffect(() => {
-    if (!item) return
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose()
-    document.addEventListener('keydown', onKey)
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.removeEventListener('keydown', onKey)
-      document.body.style.overflow = ''
-    }
-  }, [item, onClose])
+  const dialogRef = useDialog(Boolean(item), onClose)
 
   if (!item || !market) return null
 
   const inquiry = `${market.label} — ${item.capital}${isBusiness ? ' (فئة رجال الأعمال)' : ''}`
 
-  return (
-    <div className="fixed inset-0 z-[80] flex items-end justify-center p-4 sm:items-center" role="dialog" aria-modal="true">
+  return createPortal(
+    <div className="fixed inset-0 z-[80] flex items-end justify-center p-4 sm:items-center" role="dialog" aria-modal="true" aria-labelledby="package-dialog-title">
       <div className="absolute inset-0 bg-brand-950/40 backdrop-blur-sm" onClick={onClose} />
-      <div className="card relative z-10 w-full max-w-lg animate-fade-up p-6 sm:p-8">
+      <div ref={dialogRef} tabIndex={-1} className="card relative z-10 max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain w-full max-w-lg animate-fade-up p-6 sm:p-8">
         <button
           onClick={onClose}
           className="absolute left-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-brand-900/10 bg-brand-50/70 text-ink-800 transition hover:text-ink-950"
@@ -39,7 +31,7 @@ export function PackageModal({ item, market, isBusiness, onClose }: PackageModal
           <Icon name="close" size={16} />
         </button>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 pl-9">
           <span className="text-2xl" aria-hidden>
             {market.flag}
           </span>
@@ -47,7 +39,7 @@ export function PackageModal({ item, market, isBusiness, onClose }: PackageModal
             <p className="text-[12px] text-ink-600">
               {BRAND.name} · {isBusiness ? 'فئة رجال الأعمال' : 'عرض استثماري'}
             </p>
-            <h3 className="mt-0.5 text-lg font-bold">
+            <h3 id="package-dialog-title" className="mt-0.5 text-lg font-bold">
               {market.label} — {market.currency}
             </h3>
           </div>
@@ -84,7 +76,8 @@ export function PackageModal({ item, market, isBusiness, onClose }: PackageModal
           />
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   )
 }
 

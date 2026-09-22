@@ -6,7 +6,7 @@ import { Icon } from './ui/Icon'
 
 export function Durations() {
   return (
-    <section id="durations" className="relative scroll-mt-28 py-20 lg:py-28">
+    <section id="durations" className="relative scroll-mt-28 py-12 sm:py-16 lg:py-20">
       <div className="container-x">
         <SectionHeading
           eyebrow="أنظمة الاشتراك"
@@ -19,7 +19,7 @@ export function Durations() {
           description="تختلف مدة كل باقة حسب المنتج والشروط. اختر النظام المناسب ثم تواصل معنا لمعرفة آلية التسوية والدفعات."
         />
 
-        <div className="mt-14 grid gap-5 lg:grid-cols-3">
+        <div className="mt-9 sm:mt-10 grid gap-5 lg:grid-cols-3">
           {DURATIONS.map((d, i) => (
             <Reveal key={d.title} delay={i * 110}>
               <article

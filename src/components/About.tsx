@@ -13,7 +13,7 @@ const points = [
 
 export function About() {
   return (
-    <section id="about" className="relative scroll-mt-28 py-20 lg:py-28">
+    <section id="about" className="relative scroll-mt-28 py-12 sm:py-16 lg:py-20">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute right-[-15%] top-1/3 h-[320px] w-[320px] rounded-full bg-brand-200/50 blur-3xl" />
       </div>
@@ -29,7 +29,7 @@ export function About() {
           }
         />
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+        <div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <Reveal>
             <div className="card card-top-glow p-7 sm:p-9">
               <p className="text-[15px] leading-9 text-ink-800 sm:text-base">
