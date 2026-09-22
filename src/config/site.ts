@@ -19,6 +19,7 @@ export const CONTACT = {
 
 export const NAV_LINKS = [
   { id: 'home', label: 'الرئيسية' },
+  { id: 'advantages', label: 'لماذا بامبات' },
   { id: 'about', label: 'من نحن' },
   { id: 'services', label: 'خدماتنا' },
   { id: 'packages', label: 'الباقات' },
@@ -30,6 +31,7 @@ export const NAV_LINKS = [
 export const FOOTER_LINKS = {
   تصفح: [
     { id: 'home', label: 'الرئيسية' },
+    { id: 'advantages', label: 'لماذا بامبات' },
     { id: 'about', label: 'من نحن' },
     { id: 'pamm', label: 'PAMM' },
     { id: 'packages', label: 'الباقات' },

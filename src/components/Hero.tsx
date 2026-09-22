@@ -1,5 +1,5 @@
 import { BRAND, RISK_DISCLAIMER } from '../config/site'
-import { HERO_STATS } from '../data/content'
+import { ADVANTAGES, HERO_COPY, HERO_STATS } from '../data/content'
 import { scrollToId } from '../hooks/useActiveSection'
 import { ContactMenu } from './ui/ContactMenu'
 import { Icon, type IconName } from './ui/Icon'
@@ -26,52 +26,57 @@ export function Hero() {
                 <span className="absolute inline-flex h-4 w-4 animate-pulse-ring rounded-full bg-brand-400/60" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-400" />
               </span>
-              حلول استثمارية متعددة الأسواق
+              حلول استثمارية متعددة الأسواق وإشارات رقمية
             </span>
           </Reveal>
 
           <Reveal delay={90}>
-            <h1 className="mt-6 text-balance text-4xl font-black leading-[1.22] sm:text-5xl lg:text-[3.6rem]">
-              <span className="text-gradient">حلول مالية واستثمارية</span>
+            <h1 className="mt-6 text-balance text-4xl font-black leading-[1.22] sm:text-5xl lg:text-[3.3rem]">
+              <span className="text-gradient">{HERO_COPY.titleLead}</span>
               <br className="hidden sm:block" />{' '}
-              <span className="text-gradient-brand">مصممة لرأس مالك</span>
+              <span className="text-gradient-brand">{HERO_COPY.titleHighlight}</span>
             </h1>
           </Reveal>
 
           <Reveal delay={180}>
             <p className="mx-auto mt-6 max-w-2xl text-[15px] leading-8 text-ink-800 sm:text-lg lg:mx-0">
-              اكتشف مجموعة من الحلول الاستثمارية التي تشمل حسابات PAMM، الفرص الاستثمارية، الاكتتابات
-              والباقات المالية بمستويات مختلفة من رأس المال والعملات.
+              {HERO_COPY.intro}
             </p>
           </Reveal>
 
           <Reveal delay={260}>
             <div className="mt-7 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+              <ContactMenu
+                align="center"
+                inquiry="الانضمام إلى المجتمع وإشارات البامب"
+                triggerClassName="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-l from-brand-400 to-brand-600 px-5 py-3.5 text-base font-bold text-white shadow-[0_14px_40px_-14px_rgba(18,164,105,0.55)] transition hover:from-brand-500 hover:to-brand-700 sm:w-auto"
+                trigger={
+                  <>
+                    انضم الآن إلى المجتمع
+                    <Icon
+                      name="chevronDown"
+                      size={17}
+                      className="transition-transform group-hover:translate-y-0.5"
+                    />
+                  </>
+                }
+              />
+
               <button
                 onClick={() => scrollToId('packages')}
-                className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-l from-brand-400 to-brand-600 px-5 py-3.5 text-base font-bold text-white shadow-[0_14px_40px_-14px_rgba(18,164,105,0.55)] transition hover:from-brand-500 hover:to-brand-700"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-brand-500/30 bg-white px-5 py-3.5 text-base font-semibold text-brand-700 shadow-glow-soft transition hover:border-brand-500/60 hover:bg-brand-50 hover:text-brand-800 sm:w-auto"
               >
                 استعرض الباقات
                 <Icon name="arrowLeft" size={18} className="transition-transform group-hover:-translate-x-1" />
               </button>
 
               <button
-                onClick={() => scrollToId('services')}
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-brand-500/30 bg-white px-5 py-3.5 text-base font-semibold text-brand-700 shadow-glow-soft transition hover:border-brand-500/60 hover:bg-brand-50 hover:text-brand-800"
+                onClick={() => scrollToId('advantages')}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-brand-900/15 bg-brand-50/70 px-5 py-3.5 text-base font-semibold text-ink-950 backdrop-blur transition hover:border-brand-400/50 hover:bg-brand-500/10 sm:w-auto"
               >
-                اكتشف عروضنا
+                كيف نضمن تفوقك؟
+                <Icon name="arrowLeft" size={18} />
               </button>
-
-              <ContactMenu
-                align="center"
-                triggerClassName="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-brand-900/15 bg-brand-50/70 px-5 py-3.5 text-base font-semibold text-ink-950 backdrop-blur transition hover:border-brand-400/50 hover:bg-brand-500/10 sm:w-auto"
-                trigger={
-                  <>
-                    تواصل معنا
-                    <Icon name="chevronDown" size={17} />
-                  </>
-                }
-              />
             </div>
           </Reveal>
 
@@ -173,6 +178,20 @@ function HeroVisual() {
                 <span className={`h-8 w-16 rounded-full bg-gradient-to-l ${row.tone} opacity-70`} />
               </div>
             ))}
+          </div>
+
+          <div className="mt-6 border-t border-brand-900/10 pt-5">
+            <p className="text-[11.5px] font-bold text-ink-950">كيف نضمن تفوقك في السوق؟</p>
+            <ul className="mt-3 space-y-2.5">
+              {ADVANTAGES.map((item) => (
+                <li key={item.title} className="flex items-center gap-2.5">
+                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg border border-brand-400/25 bg-brand-500/[0.12] text-brand-600">
+                    <Icon name={item.icon as IconName} size={14} />
+                  </span>
+                  <span className="text-[12.5px] font-semibold text-ink-900">{item.title}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
