@@ -1,4 +1,4 @@
-import { MARKETS, USD_PACKAGES, type PackageItem } from '../../data/content'
+import { MARKETS, USD_PACKAGES, USDT_SUBSCRIPTION, type PackageItem } from '../../data/content'
 import { Reveal } from '../ui/Reveal'
 import { Icon } from '../ui/Icon'
 import { PackageGrid } from './PackageGrid'
@@ -69,6 +69,39 @@ export function UsdSection({ onOpen }: UsdSectionProps) {
                 onOpen={onOpen}
               />
             </div>
+
+            {/* وصف الاشتراك من جميع الدول العربية بعملة USDT */}
+            <Reveal delay={120}>
+              <div className="mt-10 rounded-[1.75rem] border border-brand-500/20 bg-gradient-to-bl from-white via-brand-50/70 to-white p-6 sm:p-8">
+                <span className="eyebrow">
+                  <Icon name="globe" size={16} />
+                  {USDT_SUBSCRIPTION.eyebrow}
+                </span>
+
+                <h3 className="mt-5 text-xl font-extrabold sm:text-2xl">{USDT_SUBSCRIPTION.title}</h3>
+
+                <p className="mt-4 max-w-3xl text-[14.5px] leading-8 text-ink-700">
+                  {USDT_SUBSCRIPTION.desc}
+                </p>
+
+                <ul className="mt-6 space-y-3">
+                  {USDT_SUBSCRIPTION.points.map((point) => (
+                    <li
+                      key={point}
+                      className="flex items-start gap-2.5 text-[13.5px] leading-7 text-ink-700"
+                    >
+                      <Icon name="check" size={16} className="mt-1 shrink-0 text-brand-600" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="mt-6 flex items-start gap-2 rounded-2xl border border-brand-900/10 bg-white px-4 py-3 text-[12.5px] leading-6 text-ink-700">
+                  <Icon name="shield" size={16} className="mt-0.5 shrink-0 text-brand-500" />
+                  {USDT_SUBSCRIPTION.note}
+                </p>
+              </div>
+            </Reveal>
 
             <Reveal delay={120}>
               <p className="mt-8 flex items-start gap-2 text-[12.5px] leading-6 text-ink-600">
