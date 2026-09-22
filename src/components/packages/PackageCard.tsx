@@ -1,8 +1,8 @@
 import type { Market, PackageItem } from '../../data/content'
 import { Icon } from '../ui/Icon'
 import { ContactMenu } from '../ui/ContactMenu'
-import { WhatsAppMark } from '../ui/Button'
-import { whatsappLink } from '../../data/content'
+import { TelegramMark } from '../ui/Button'
+import { telegramLink } from '../../data/content'
 
 type PackageCardProps = {
   item: PackageItem
@@ -70,13 +70,13 @@ export function PackageCard({ item, market, index, variant = 'default', onOpen }
       <div className="px-6 pb-6">
         {market.id === 'ae' && isBusiness ? (
           <a
-            href={whatsappLink(inquiry)}
+            href={telegramLink(inquiry)}
             target="_blank"
             rel="noreferrer noopener"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-emerald-500/25 bg-emerald-50 px-4 py-3 text-[13px] font-bold text-emerald-700 transition hover:border-emerald-500/50 hover:bg-emerald-100 hover:text-emerald-800"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-sky-500/25 bg-sky-50 px-4 py-3 text-[13px] font-bold text-sky-700 transition hover:border-sky-500/50 hover:bg-sky-100 hover:text-sky-800"
           >
-            <WhatsAppMark size={17} />
-            استفسر عبر واتساب
+            <TelegramMark size={17} />
+            استفسر عبر تيليجرام
           </a>
         ) : (
           <ContactMenu

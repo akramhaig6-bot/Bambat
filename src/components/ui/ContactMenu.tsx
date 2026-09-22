@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
 import { CONTACT } from '../../config/site'
-import { telegramLink, whatsappLink } from '../../data/content'
+import { telegramLink } from '../../data/content'
 import { Icon } from './Icon'
-import { TelegramMark, WhatsAppMark } from './Button'
+import { TelegramMark } from './Button'
 
 const MENU_WIDTH = 240
 
@@ -17,7 +17,7 @@ type ContactMenuProps = {
 }
 
 /**
- * قائمة منسدلة بخياري واتساب وتيليجرام.
+ * قائمة منسدلة بخيار تيليجرام.
  * تُعرض عبر Portal حتى لا تتأثر بـ overflow داخل البطاقات.
  */
 export function ContactMenu({
@@ -126,25 +126,11 @@ export function ContactMenu({
             >
               <a
                 role="menuitem"
-                href={whatsappLink(inquiry)}
-                target="_blank"
-                rel="noreferrer noopener"
-                onClick={close}
-                className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50"
-              >
-                <span className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-500/15 text-emerald-700">
-                  <WhatsAppMark size={17} />
-                </span>
-                <span className="flex-1 text-right">{CONTACT.whatsappLabel}</span>
-                <Icon name="arrowLeft" size={15} className="text-emerald-700" />
-              </a>
-              <a
-                role="menuitem"
                 href={telegramLink(inquiry)}
                 target="_blank"
                 rel="noreferrer noopener"
                 onClick={close}
-                className="mt-1 flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-sky-700 transition hover:bg-sky-50"
+                className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-sky-700 transition hover:bg-sky-50"
               >
                 <span className="grid h-8 w-8 place-items-center rounded-lg bg-sky-500/15 text-sky-700">
                   <TelegramMark size={17} />

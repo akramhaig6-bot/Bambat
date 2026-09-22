@@ -1,7 +1,7 @@
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
 import { Icon, type IconName } from './Icon'
 
-type Variant = 'primary' | 'outline' | 'ghost' | 'whatsapp' | 'telegram'
+type Variant = 'primary' | 'outline' | 'ghost' | 'telegram'
 type Size = 'sm' | 'md' | 'lg'
 
 const base =
@@ -13,8 +13,6 @@ const variants: Record<Variant, string> = {
   outline:
     'border border-brand-900/15 bg-brand-50/70 text-ink-950 backdrop-blur hover:border-brand-400/50 hover:bg-brand-500/10 hover:text-ink-950',
   ghost: 'text-ink-800 hover:bg-brand-50 hover:text-ink-950',
-  whatsapp:
-    'border border-emerald-500/25 bg-emerald-50 text-emerald-700 hover:border-emerald-500/50 hover:bg-emerald-100 hover:text-emerald-800',
   telegram:
     'border border-sky-500/25 bg-sky-50 text-sky-700 hover:border-sky-500/50 hover:bg-sky-100 hover:text-sky-800',
 }
@@ -60,7 +58,7 @@ export function ButtonLink({
 }
 
 type ContactButtonProps = {
-  channel: 'whatsapp' | 'telegram'
+  channel: 'telegram'
   href: string
   label?: string
   size?: Size
@@ -68,32 +66,22 @@ type ContactButtonProps = {
 }
 
 export function ContactButton({
-  channel,
+  channel: _channel,
   href,
   label,
   size = 'md',
   className = '',
 }: ContactButtonProps) {
-  const isWa = channel === 'whatsapp'
   return (
     <a
       href={href}
       target="_blank"
       rel="noreferrer noopener"
-      className={`${base} ${isWa ? variants.whatsapp : variants.telegram} ${sizes[size]} ${className}`}
+      className={`${base} ${variants.telegram} ${sizes[size]} ${className}`}
     >
-      {isWa ? <WhatsAppMark /> : <TelegramMark />}
-      <span>{label ?? (isWa ? 'واتساب' : 'تيليجرام')}</span>
+      <TelegramMark />
+      <span>{label ?? 'تيليجرام'}</span>
     </a>
-  )
-}
-
-export function WhatsAppMark({ size = 18 }: { size?: number }) {
-  return (
-    <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor" aria-hidden="true">
-      <path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35z" />
-      <path d="M12.04 2C6.6 2 2.18 6.42 2.18 11.86c0 1.73.45 3.42 1.31 4.91L2 22l5.36-1.4a9.83 9.83 0 0 0 4.68 1.19h.01c5.43 0 9.85-4.42 9.85-9.86A9.8 9.8 0 0 0 19.44 5.5 9.79 9.79 0 0 0 12.04 2zm0 18.02h-.01a8.2 8.2 0 0 1-4.16-1.14l-.3-.18-3.09.81.83-3.01-.19-.31a8.16 8.16 0 0 1-1.26-4.33c0-4.54 3.7-8.23 8.25-8.23a8.2 8.2 0 0 1 8.24 8.22c0 4.54-3.7 8.17-8.31 8.17z" />
-    </svg>
   )
 }
 

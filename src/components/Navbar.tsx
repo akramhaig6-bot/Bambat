@@ -132,18 +132,11 @@ export function Navbar() {
               }`}
             >
               <ContactButton
-                channel="whatsapp"
-                href={CONTACT.whatsapp}
-                label={CONTACT.whatsappLabel}
-                size="sm"
-                className="w-full justify-start"
-              />
-              <ContactButton
                 channel="telegram"
                 href={CONTACT.telegram}
                 label={CONTACT.telegramLabel}
                 size="sm"
-                className="mt-1 w-full justify-start"
+                className="w-full justify-start"
               />
               <p className="mt-2 border-t border-brand-900/10 px-3 pt-2 text-[11px] leading-5 text-ink-600">
                 بدون تسجيل — محادثة مباشرة مع فريقنا
@@ -222,12 +215,6 @@ export function Navbar() {
           <div className="mt-6 space-y-2 border-t border-white/20 pt-6">
             <p className="px-1 text-xs font-semibold text-white/70">تواصل معنا</p>
             <ContactButton
-              channel="whatsapp"
-              href={CONTACT.whatsapp}
-              label={CONTACT.whatsappLabel}
-              className="w-full"
-            />
-            <ContactButton
               channel="telegram"
               href={CONTACT.telegram}
               label={CONTACT.telegramLabel}
@@ -237,7 +224,7 @@ export function Navbar() {
 
           <div className="mt-auto pt-8">
             <p className="rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-[11.5px] leading-6 text-white/80">
-              بدون تسجيل — محادثة مباشرة مع فريق {BRAND.name} عبر واتساب أو تيليجرام.
+              بدون تسجيل — محادثة مباشرة مع فريق {BRAND.name} عبر تيليجرام.
             </p>
           </div>
         </div>

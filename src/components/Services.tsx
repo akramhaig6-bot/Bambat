@@ -16,7 +16,7 @@ export function Services() {
               أربع مسارات واضحة <span className="text-gradient-brand">للاستثمار</span>
             </>
           }
-          description="اختر المسار المناسب لك، ثم تواصل مع فريقنا مباشرة عبر واتساب أو تيليجرام لمعرفة التفاصيل والشروط."
+          description="اختر المسار المناسب لك، ثم تواصل مع فريقنا مباشرة عبر تيليجرام لمعرفة التفاصيل والشروط."
         />
 
         <div className="mt-9 sm:mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
