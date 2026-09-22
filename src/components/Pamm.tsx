@@ -14,7 +14,7 @@ export function Pamm() {
             <div className="absolute -left-24 -top-24 h-[380px] w-[380px] rounded-full bg-brand-500/[0.18] blur-3xl" />
             <div className="absolute -bottom-32 right-[-5%] h-[320px] w-[320px] rounded-full bg-brand-200/50 blur-3xl" />
             <span className="absolute left-8 top-8 font-display text-[9rem] font-black text-brand-500/10">
-              PAMM
+              Pumps
             </span>
           </div>
 
@@ -28,14 +28,14 @@ export function Pamm() {
 
             <Reveal delay={80}>
               <h2 className="mt-6 max-w-3xl text-balance text-3xl font-extrabold leading-[1.25] sm:text-4xl">
-                PAMM — إدارة رأس المال عبر{' '}
+                Pumps — إدارة رأس المال عبر{' '}
                 <span className="text-gradient-brand">استراتيجيات متخصصة</span>
               </h2>
             </Reveal>
 
             <Reveal delay={160}>
               <p className="mt-6 max-w-3xl text-[15px] leading-9 text-ink-800 sm:text-base">
-                يتيح نموذج PAMM تخصيص رأس المال ضمن استراتيجية تتم إدارتها من قبل مدير أو متداول وفق
+                يتيح نموذج Pumps تخصيص رأس المال ضمن استراتيجية تتم إدارتها من قبل مدير أو متداول وفق
                 شروط وأهداف محددة. قبل المشاركة، يمكن للمستثمر الاطلاع على تفاصيل الاستراتيجية
                 ومستوى المخاطر وشروطها.
               </p>
@@ -68,11 +68,11 @@ export function Pamm() {
                   جميع الخطوات تتم عبر التواصل المباشر — لا يوجد تسجيل أو لوحة تحكم داخل الصفحة.
                 </p>
                 <ContactMenu
-                  inquiry="PAMM"
+                  inquiry="Pumps"
                   triggerClassName="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-l from-brand-400 to-brand-600 px-6 py-3.5 text-sm font-bold text-white shadow-[0_12px_35px_-14px_rgba(18,164,105,0.55)] transition hover:from-brand-500 hover:to-brand-700"
                   trigger={
                     <>
-                      تواصل حول PAMM
+                      تواصل حول Pumps
                       <Icon name="chevronDown" size={17} />
                     </>
                   }

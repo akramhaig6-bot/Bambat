@@ -5,7 +5,7 @@ import { Icon } from './ui/Icon'
 import { scrollToId } from '../hooks/useActiveSection'
 
 const points = [
-  { icon: 'chart', title: 'حسابات PAMM', desc: 'إدارة رأس المال عبر استراتيجيات متخصصة.' },
+  { icon: 'chart', title: 'حسابات Pumps', desc: 'إدارة رأس المال عبر استراتيجيات متخصصة.' },
   { icon: 'sparkle', title: 'فرص واكتتابات', desc: 'الاطلاع على الشروط قبل اتخاذ القرار.' },
   { icon: 'wallet', title: 'باقات مرنة', desc: 'مبالغ وعملات ومدد تناسب شرائح مختلفة.' },
   { icon: 'handshake', title: 'تواصل مباشر', desc: 'فريقنا يوضح الخطوات وبيانات الدفع الرسمية.' },
@@ -37,7 +37,7 @@ export function About() {
                 استثمارية مصممة لتناسب شرائح مختلفة من المستثمرين.
               </p>
               <p className="mt-4 text-[15px] leading-9 text-ink-800 sm:text-base">
-                تشمل خدماتنا حسابات PAMM، والفرص الاستثمارية، والاكتتابات، والباقات المخصصة لرؤوس
+                تشمل خدماتنا حسابات Pumps، والفرص الاستثمارية، والاكتتابات، والباقات المخصصة لرؤوس
                 الأموال المختلفة.
               </p>
               <p className="mt-4 text-[15px] leading-9 text-ink-800 sm:text-base">

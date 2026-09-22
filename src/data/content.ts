@@ -131,7 +131,7 @@ export const MARKET_GROUPS: MarketGroup[] = [
 export const USD_PACKAGES = usdPackages
 
 export const HERO_STATS = [
-  { title: 'PAMM', desc: 'إدارة واستراتيجيات استثمارية' },
+  { title: 'Pumps', desc: 'إدارة واستراتيجيات استثمارية' },
   { title: 'اكتتابات', desc: 'فرص استثمارية مختارة' },
   { title: 'باقات متعددة', desc: 'خيارات حسب رأس المال والعملة' },
 ]
@@ -139,9 +139,9 @@ export const HERO_STATS = [
 export const SERVICES = [
   {
     icon: 'chart',
-    title: 'PAMM',
+    title: 'Pumps',
     desc: 'حلول لإدارة رأس المال من خلال استراتيجيات ومديرين متخصصين.',
-    cta: 'استكشف PAMM',
+    cta: 'استكشف Pumps',
     target: 'pamm',
   },
   {
@@ -259,7 +259,7 @@ export const FAQ_ITEMS = [
     a: 'الاستثمار ينطوي على مخاطر، ولا ينبغي اعتبار أي عائد مضمونًا إلا إذا كان هناك أساس قانوني ووثائق واضحة تثبت ذلك.',
   },
   {
-    q: 'ما هو PAMM؟',
+    q: 'ما هو Pumps؟',
     a: 'هو نموذج لإدارة رأس المال ضمن حساب أو استراتيجية يديرها مدير/متداول وفق شروط محددة.',
   },
   {
