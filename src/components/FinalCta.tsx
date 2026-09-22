@@ -33,18 +33,11 @@ export function FinalCta() {
 
               <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <ContactButton
-                  channel="whatsapp"
-                  href={CONTACT.whatsapp}
-                  label={CONTACT.whatsappLabel}
-                  size="lg"
-                  className="w-full border-white/30 bg-white text-brand-800 hover:border-white hover:bg-brand-50 hover:text-brand-900 sm:w-auto"
-                />
-                <ContactButton
                   channel="telegram"
                   href={CONTACT.telegram}
                   label={CONTACT.telegramLabel}
                   size="lg"
-                  className="w-full border-white/30 bg-white/15 text-white hover:border-white/60 hover:bg-white/25 hover:text-white sm:w-auto"
+                  className="w-full border-white/30 bg-white text-brand-800 hover:border-white hover:bg-brand-50 hover:text-brand-900 sm:w-auto"
                 />
               </div>
 

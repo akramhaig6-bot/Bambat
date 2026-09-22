@@ -1,7 +1,7 @@
 import { createPortal } from 'react-dom'
 import { useDialog } from '../../hooks/useDialog'
 import { BRAND, RISK_DISCLAIMER } from '../../config/site'
-import { telegramLink, whatsappLink, type Market, type PackageItem } from '../../data/content'
+import { telegramLink, type Market, type PackageItem } from '../../data/content'
 import { ContactButton } from '../ui/Button'
 import { Icon } from '../ui/Icon'
 
@@ -56,18 +56,12 @@ export function PackageModal({ item, market, isBusiness, onClose }: PackageModal
           <Row label="العائد اليومي المعلن" value={item.returns} />
           <Row label="مدة الاستثمار" value={item.duration} />
           <Row label="السوق" value={`${market.flag} ${market.label}`} />
-          <Row label="طريقة التواصل" value="واتساب أو تيليجرام" />
+          <Row label="طريقة التواصل" value="تيليجرام" />
         </dl>
 
         <p className="mt-5 text-[12px] leading-6 text-ink-600">{RISK_DISCLAIMER}</p>
 
-        <div className="mt-6 grid gap-3 sm:grid-cols-2">
-          <ContactButton
-            channel="whatsapp"
-            href={whatsappLink(inquiry)}
-            label="تواصل عبر واتساب"
-            className="w-full"
-          />
+        <div className="mt-6">
           <ContactButton
             channel="telegram"
             href={telegramLink(inquiry)}

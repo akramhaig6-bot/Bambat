@@ -12,11 +12,8 @@ export const BRAND = {
 }
 
 export const CONTACT = {
-  /** رابط واتساب — استبدل الرقم برقم الشركة بصيغة دولية بدون + */
-  whatsapp: 'https://wa.me/966500000000',
-  whatsappLabel: 'واتساب',
   /** رابط تيليجرام */
-  telegram: 'https://t.me/bambat',
+  telegram: 'https://t.me/Rashedalmotairi',
   telegramLabel: 'تيليجرام',
 }
 
@@ -41,16 +38,7 @@ export const FOOTER_LINKS = {
     { id: 'faq', label: 'الأسئلة الشائعة' },
     { id: 'contact', label: 'تواصل معنا' },
   ],
-  قانوني: [
-    { id: 'terms', label: 'الشروط والأحكام' },
-    { id: 'privacy', label: 'سياسة الخصوصية' },
-    { id: 'disclaimer', label: 'إخلاء المسؤولية' },
-    { id: 'risk', label: 'تحذير المخاطر' },
-  ],
 } as const
 
 export const RISK_DISCLAIMER =
   'الاستثمار ينطوي على مخاطر، والعوائد غير مضمونة ما لم ينص على خلاف ذلك بشكل قانوني وواضح.'
-
-export const RISK_FOOTER =
-  'تحذير المخاطر: جميع الاستثمارات تنطوي على درجة من المخاطر، وقد يتعرض رأس المال للخسارة. العوائد المعروضة أو المستهدفة لا تمثل ضمانًا للنتائج المستقبلية.'

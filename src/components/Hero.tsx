@@ -184,7 +184,7 @@ function HeroVisual() {
             </span>
             <div>
               <p className="text-[11px] text-ink-600">تواصل مباشر</p>
-              <p className="text-[13px] font-bold text-ink-950">واتساب · تيليجرام</p>
+              <p className="text-[13px] font-bold text-ink-950">تيليجرام</p>
             </div>
           </div>
         </div>
