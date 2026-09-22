@@ -138,9 +138,6 @@ export function ContactMenu({
                 <span className="flex-1 text-right">{CONTACT.telegramLabel}</span>
                 <Icon name="arrowLeft" size={15} className="text-sky-700" />
               </a>
-              <p className="mt-1.5 border-t border-brand-900/10 px-3 pt-2 text-[11px] leading-5 text-ink-600">
-                بدون تسجيل أو إنشاء حساب
-              </p>
             </div>,
             document.body,
           )
