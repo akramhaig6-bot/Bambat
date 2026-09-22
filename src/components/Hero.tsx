@@ -137,7 +137,7 @@ function HeroVisual() {
               </p>
             </div>
             <span className="rounded-xl border border-brand-400/25 bg-brand-500/[0.12] px-3 py-1.5 text-[11px] font-bold text-brand-700">
-              PAMM · اكتتابات · باقات
+              Pumps · اكتتابات · باقات
             </span>
           </div>
 

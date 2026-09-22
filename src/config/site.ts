@@ -5,8 +5,8 @@
 
 export const BRAND = {
   /** اسم الشركة — يظهر في النافبار والفوتر وكل الأقسام */
-  name: 'بامبات',
-  nameEn: 'Bambat',
+  name: 'الإتقان الرقمية',
+  nameEn: 'Al-Itqan Digital',
   tagline: 'حلول مالية واستثمارية',
   since: 2026,
 }
@@ -19,25 +19,22 @@ export const CONTACT = {
 
 export const NAV_LINKS = [
   { id: 'home', label: 'الرئيسية' },
-  { id: 'advantages', label: 'لماذا بامبات' },
+  { id: 'advantages', label: 'لماذا الإتقان الرقمية' },
   { id: 'about', label: 'من نحن' },
   { id: 'services', label: 'خدماتنا' },
   { id: 'packages', label: 'الباقات' },
-  { id: 'pamm', label: 'PAMM' },
+  { id: 'pamm', label: 'Pumps' },
   { id: 'ipo', label: 'الاكتتابات' },
-  { id: 'faq', label: 'الأسئلة الشائعة' },
 ] as const
 
 export const FOOTER_LINKS = {
   تصفح: [
     { id: 'home', label: 'الرئيسية' },
-    { id: 'advantages', label: 'لماذا بامبات' },
+    { id: 'advantages', label: 'لماذا الإتقان الرقمية' },
     { id: 'about', label: 'من نحن' },
-    { id: 'pamm', label: 'PAMM' },
+    { id: 'pamm', label: 'Pumps' },
     { id: 'packages', label: 'الباقات' },
     { id: 'ipo', label: 'الاكتتابات' },
-    { id: 'durations', label: 'أنظمة الاستثمار' },
-    { id: 'faq', label: 'الأسئلة الشائعة' },
     { id: 'contact', label: 'تواصل معنا' },
   ],
 } as const
