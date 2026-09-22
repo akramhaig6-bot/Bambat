@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { scrollToId } from './hooks/useActiveSection'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
+import { Advantages } from './components/Advantages'
 import { MarketStrip } from './components/MarketStrip'
 import { About } from './components/About'
 import { Services } from './components/Services'
@@ -39,6 +40,7 @@ export default function App() {
 
       <main>
         <Hero />
+        <Advantages />
         <About />
         <Services />
         <div className="product-region">
