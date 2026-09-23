@@ -21,6 +21,7 @@ export type IconName =
   | 'handshake'
   | 'trendUp'
   | 'rocket'
+  | 'pin'
 
 const paths: Record<IconName, JSX.Element> = {
   chart: (
@@ -135,6 +136,12 @@ const paths: Record<IconName, JSX.Element> = {
     <>
       <path d="M13 4c4 1 7 4 7 8-1 3-4 5-7 6l-3-3-4-1c1-3 3-6 6-7z" />
       <path d="M9.5 14.5L5 19M6.5 17.5l-2 2M9 12l3 3" />
+    </>
+  ),
+  pin: (
+    <>
+      <path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z" />
+      <circle cx="12" cy="10" r="2.5" />
     </>
   ),
 }

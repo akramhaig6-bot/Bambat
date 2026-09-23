@@ -13,6 +13,7 @@ import { Journey } from './components/Journey'
 import { Ipo } from './components/Ipo'
 import { ContactCta } from './components/ContactCta'
 import { FinalCta } from './components/FinalCta'
+import { LocationMap } from './components/LocationMap'
 import { Footer } from './components/Footer'
 import { ScrollProgress } from './components/ui/ScrollProgress'
 
@@ -57,6 +58,7 @@ export default function App() {
         </div>
       </main>
 
+      <LocationMap />
       <Footer />
     </div>
   )
