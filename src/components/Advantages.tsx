@@ -15,7 +15,7 @@ export function Advantages() {
 
       <div className="container-x">
         <SectionHeading
-          eyebrow="لماذا الإتقان الرقمية"
+          eyebrow="لماذا الإتقان الرقمية الحلال"
           icon="rocket"
           title={
             <>
